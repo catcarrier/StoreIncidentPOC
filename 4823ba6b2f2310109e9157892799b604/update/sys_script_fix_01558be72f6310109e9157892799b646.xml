@@ -1,0 +1,687 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_fix">
+    <sys_script_fix action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <before>false</before>
+        <description/>
+        <flush_cache>false</flush_cache>
+        <name>Populate incidents</name>
+        <record_for_rollback>false</record_for_rollback>
+        <run_once>false</run_once>
+        <script><![CDATA[var INC_SUSPICIOUS_RETURN  = 'SUSPICIOUS_RETURN';
+var INC_VEHICLE_BREAKIN    = 'VEHICLE_BREAKIN';
+var INC_SHOPLIFTING        = 'SHOPLIFTING';
+var INC_ROBBERY            = 'ROBBERY';
+var INC_OTHER_CRIMINAL     = 'OTHER_CRIMINAL';
+
+var STATE_DRAFT            = 'DRAFT';
+var STATE_SUBMITTED        = 'SUBMITTED';
+var STATE_FAILED           = 'FAILED';
+
+var STORE_78               = '82a587e72f6310109e9157892799b624';
+var STORE_33               = '37854fe72f6310109e9157892799b646';
+var STORE_307              = '5db54fe72f6310109e9157892799b6ae';
+
+var STR0033 = 'e4f5432b2f6310109e9157892799b67d';
+var STR0078 = '8166472b2f6310109e9157892799b6f0';
+var STR0307 = 'f0c68fe72f6310109e9157892799b653';
+
+// vehicle
+var vehicle_incidents = [{
+        'u_event_subtype': INC_VEHICLE_BREAKIN,
+		'u_author':STORE_33,
+        'u_state': STATE_DRAFT,
+        'u_event_location': STR0033,
+        'u_incident_datetime': '2020-07-02 16:31:00',
+        'u_employee_id_reporting': '111111',
+        'u_description': 'Somebody robbed the Glendale train',
+        'u_victim_name': 'Billy',
+        'u_le_was_notified': 'YES POLICE RESPONDED IN PERSON',
+        'police': [{
+            'u_le_agency': 'ABC Constabulary',
+            'u_le_name': 'Pat',
+            'u_le_time_arrived': '2020-07-02 18:35:00',
+            'u_le_time_called': '2020-07-02 18:02:00',
+            'u_le_badge': 'B11111',
+            'u_le_case_number': 'C00001',
+            'u_le_disposition': 'REPORTED ONLY'
+        }],
+        'vehicle': [{
+            'u_vehicle_make': 'Ford',
+            'u_vehicle_model': 'Prefect',
+            'u_vehicle_plate': 'MMM111',
+            'u_vehicle_year': '2000',
+            'u_is_employee_vehicle': true
+        }],
+        'witness': [],
+        'suspect': []
+    },
+    {
+        'u_event_subtype': INC_VEHICLE_BREAKIN,
+		'u_state': STATE_DRAFT,
+        'u_event_location': STR0307,
+		'u_author':STORE_307,
+        'u_incident_datetime': '2020-08-20 17:05:00',
+        'u_employee_id_reporting': '111111',
+        'u_description': 'Broke into a car and swiped the ashtray',
+        'u_victim_name': 'Billy',
+        'u_le_was_notified': 'YES POLICE RESPONDED IN PERSON',
+        'vehicle': [{
+            'u_vehicle_make': 'Ford',
+            'u_vehicle_model': 'Prefect',
+            'u_vehicle_plate': 'MMM222',
+            'u_vehicle_year': '2000'
+        }],
+        'police': [{
+            'u_le_agency': 'ABC Constabulary',
+            'u_le_name': 'Janet',
+            'u_le_time_arrived': '2020-08-20 18:35:00',
+            'u_le_time_called': '2020-08-20 18:02:00',
+            'u_le_badge': 'B11111',
+            'u_le_case_number': 'C00001',
+            'u_le_disposition': 'REPORTED ONLY'
+        }],
+        'witness': [],
+        'suspect': []
+    },
+    {
+        'u_event_subtype': INC_VEHICLE_BREAKIN,
+        'u_state': STATE_SUBMITTED,
+        'u_event_location': STR0078,
+        'u_author':STORE_78,
+        'u_incident_datetime': '2019-12-17 19:00:00',
+        'u_employee_id_reporting': '111111',
+        'u_description': 'Broke into a car and swiped the ashtray',
+        'u_victim_name': 'Billy',
+        'u_le_was_notified': 'YES POLICE RESPONDED IN PERSON',
+        'vehicle': [{
+            'u_is_employee_vehicle': false,
+            'u_vehicle_make': 'Ford',
+            'u_vehicle_model': 'Escort',
+            'u_vehicle_plate': 'MMM111',
+            'u_vehicle_year': '1992'
+        }],
+        'police': [{
+            'u_le_agency': 'ABC Constabulary',
+            'u_le_name': 'Janet',
+            'u_le_time_arrived': '2019-12-17 18:35:00',
+            'u_le_time_called': '2019-12-17 18:02:00',
+            'u_le_badge': 'B11111',
+            'u_le_case_number': 'C00001',
+            'u_le_disposition': 'REPORTED ONLY'
+        }],
+        'witness': [],
+        'suspect': []
+    },
+	{
+        'u_event_subtype': INC_VEHICLE_BREAKIN,
+        'u_state': STATE_SUBMITTED,
+        'u_event_location': STR0033,
+        'u_author':STORE_33,
+        'u_incident_datetime': '2019-12-17 19:00:00',
+        'u_employee_id_reporting': '111111',
+        'u_description': 'Broke into a car and swiped the ashtray',
+        'u_victim_name': 'Billy',
+        'u_le_was_notified': 'YES POLICE RESPONDED IN PERSON',
+        'vehicle': [{
+            'u_is_employee_vehicle': false,
+            'u_vehicle_make': 'Ford',
+            'u_vehicle_model': 'Escort',
+            'u_vehicle_plate': 'MMM111',
+            'u_vehicle_year': '1992'
+        }],
+        'police': [{
+            'u_le_agency': 'ABC Constabulary',
+            'u_le_name': 'Janet',
+            'u_le_time_arrived': '18:35:00',
+            'u_le_time_called': '18:02:00',
+            'u_le_badge': 'B11111',
+            'u_le_case_number': 'C00001',
+            'u_le_disposition': 'REPORTED ONLY'
+        }],
+        'suspect': [{
+            'u_suspect_status': 'APPREHENDED',
+            'u_suspect_name': 'Billy Bob',
+            'u_suspect_address': '',
+            'u_suspect_dl': '',
+            'u_suspect_dob': '',
+            'u_suspect_race': '',
+            'u_suspect_features': 'lots of tattoos'
+        }],
+        'witness': [{
+            'u_witness_name_phone': 'Susie 555 1212',
+            'u_witness_employee_id': '111112'
+        }]
+    }
+];
+
+// shoplifting
+var shoplifting_incidents = [{
+        'u_event_subtype': INC_SHOPLIFTING,
+        'u_state': STATE_DRAFT,
+        'u_event_location': STR0307,
+        'u_author':STORE_307,
+        'u_incident_datetime': '2020-08-20 11:34:00',
+        'u_employee_id_reporting': '111111',
+        'u_description': 'Stole the ball and cleats',
+        'u_le_was_notified': 'NO',
+        'u_weapon_involved': '',
+        'u_injury_occurred': '',
+        'u_store_closed': '',
+        'u_media_involved': '',
+        'sku': [{
+                'u_description': 'basketball',
+                'u_disposition': 'R',
+                'u_quantity': '5',
+                'u_sku': '343221',
+                'u_total_price': '',
+                'u_unit_price': '11',
+                'u_value_type': 'DEBIT/CREDIT CARD'
+            },
+            {
+                'u_description': 'cleats',
+                'u_disposition': 'N',
+                'u_quantity': '1',
+                'u_sku': '453332',
+                'u_total_price': '',
+                'u_unit_price': '48',
+                'u_value_type': 'MERCHANDISE'
+            }
+        ],
+        'police': [{
+            'u_le_agency': '',
+            'u_le_time_arrived': '2020-09-21 11:00:00',
+            'u_le_time_called': '2020-09-21 10:50:00',
+            'u_le_name': 'Billy',
+            'u_le_badge': 'B00001',
+            'u_le_case_number': '12345',
+            'u_le_disposition': 'REPORTED ONLY'
+        }],
+        'suspect': [{
+            'u_suspect_status': 'NOT APPREHENDED',
+            'u_suspect_name': 'n/a',
+            'u_suspect_address': '',
+            'u_suspect_dl': '',
+            'u_suspect_dob': '',
+            'u_suspect_race': '',
+            'u_suspect_features': ''
+        }],
+        'witness': [{
+            'u_witness_name_phone': 'Susan',
+            'u_witness_employee_id': '111111'
+        }]
+    },
+    {
+        'u_event_subtype': INC_SHOPLIFTING,
+        'u_state': STATE_FAILED,
+        'u_event_location': STR0078,
+        'u_author': STORE_78,
+        'u_incident_datetime': '2020-08-20 11:34:00',
+        'u_employee_id_reporting': '111111',
+        'u_description': 'Stole the ball and cleats',
+        'u_le_was_notified': 'NO',
+        'u_weapon_involved': '',
+        'u_injury_occurred': '',
+        'u_store_closed': '',
+        'u_media_involved': '',
+        'sku': [{
+                'u_description': 'giraffe',
+                'u_disposition': 'R',
+                'u_quantity': '5',
+                'u_sku': '5555',
+                'u_total_price': '',
+                'u_unit_price': '1200',
+                'u_value_type': 'DEBIT/CREDIT CARD'
+            },
+            {
+                'u_description': 'the silverware',
+                'u_disposition': 'N',
+                'u_quantity': '1',
+                'u_sku': '453332',
+                'u_total_price': '',
+                'u_unit_price': '31',
+                'u_value_type': 'MERCHANDISE'
+            }
+        ],
+        'police': [{
+			'u_le_agency': 'Baker Street Irregulars',
+			'u_le_time_arrived': '2020-09-22 09:30:00',
+			'u_le_time_called': '2020-09-22 09:15:00',
+			'u_le_name': 'Stanfield',
+			'u_le_badge': 'B3333',
+			'u_le_case_number': 'C122334',
+			'u_le_disposition': 'REPORTED ONLY',
+		}],
+        'witness': [{
+			'u_witness_name_phone': 'Larry 555 1212',
+			'u_witness_employee_id': '',
+		}],
+        'suspect': [{
+            'u_suspect_status': 'APPREHENDED',
+			'u_suspect_name': 'Winston Smith',
+			'u_suspect_address': '7433 Victory Lane',
+			'u_suspect_dl': '',
+			'u_suspect_dob': '1992-04-01',
+			'u_suspect_race': 'CAUCASIAN',
+			'u_suspect_features': 'Rough looking character'
+        }]
+    },
+	{
+        'u_event_subtype': INC_SHOPLIFTING,
+        'u_state': STATE_SUBMITTED,
+        'u_event_location': STR0307,
+        'u_author': STORE_307,
+        'u_incident_datetime': '2020-09-13 11:30:00',
+        'u_employee_id_reporting': '111111',
+        'u_description': 'Snaffled the candy aisle',
+        'u_le_was_notified': 'NO',
+        'u_weapon_involved': '',
+        'u_injury_occurred': '',
+        'u_store_closed': '',
+        'u_media_involved': '',
+        'sku': [{
+                'u_description': 'KitKats',
+                'u_disposition': 'R',
+                'u_quantity': '5',
+                'u_sku': '5555',
+                'u_total_price': '',
+                'u_unit_price': '1200',
+                'u_value_type': 'DEBIT/CREDIT CARD'
+            },
+            {
+                'u_description': 'Gummi Bears',
+                'u_disposition': 'N',
+                'u_quantity': '1',
+                'u_sku': '453332',
+                'u_total_price': '',
+                'u_unit_price': '31',
+                'u_value_type': 'MERCHANDISE'
+            }
+        ],
+        'police': [{
+			'u_le_agency': 'Baker Street Irregulars',
+			'u_le_time_arrived': '2020-09-22 09:30:00',
+			'u_le_time_called': '2020-09-22 09:15:00',
+			'u_le_name': 'Stanfield',
+			'u_le_badge': 'B3333',
+			'u_le_case_number': 'C122334',
+			'u_le_disposition': 'REPORTED ONLY',
+		}],
+        'witness': [{
+			'u_witness_name_phone': 'Larry 555 1212',
+			'u_witness_employee_id': '',
+		},
+		{
+			'u_witness_name_phone': 'Cindy 555 1212',
+			'u_witness_employee_id': '12234',
+		}		   
+		],
+        'suspect': [{
+            'u_suspect_status': 'APPREHENDED',
+			'u_suspect_name': 'Winston Smith',
+			'u_suspect_address': '7433 Victory Lane',
+			'u_suspect_dl': '',
+			'u_suspect_dob': '1992-04-01',
+			'u_suspect_race': 'CAUCASIAN',
+			'u_suspect_features': 'Rough looking character'
+        }]
+    }
+];
+
+// Robbery
+var robbery_incidents = [{
+        'u_event_subtype': INC_ROBBERY,
+        'u_state': STATE_DRAFT,
+        'u_event_location': STR0033,
+        'u_author': STORE_33,
+        'u_incident_datetime': '2020-06-09 09:30:00',
+        'u_employee_id_reporting': '111111',
+        'u_description': 'attempted armed robbery',
+        'u_weapon_involved': '',
+        'u_injury_occurred': '',
+        'u_store_closed': '',
+        'u_store_damaged': '',
+        'u_media_involved': '',
+        'u_suspect_enter': 'FRONT DOOR',
+        'u_targeted_assets': 'CASH',
+        'u_employee_affected_info': '',
+        'u_customers_affected_info': 'Bill Smith 555-1212',
+		'suspect':[{
+			'u_suspect_status': 'APPREHENDED',
+			'u_suspect_name': 'Josephine Smith',
+			'u_suspect_address': 'Pennypacker Street',
+			'u_suspect_dl': 'D11111',
+			'u_suspect_dob': '2000-01-01',
+			'u_suspect_race': 'HISPANIC/LATINO',
+			'u_suspect_features': 'limp'
+		}]
+    },
+    {
+        'u_event_subtype': INC_ROBBERY,
+        'u_state': STATE_SUBMITTED,
+        'u_event_location': STR0307,
+        'u_author': STORE_307,
+        'u_incident_datetime': '2019-11-02 10:30:00',
+        'u_employee_id_reporting': '111111',
+        'u_description': 'one armed bandit',
+        'u_weapon_involved': '',
+        'u_injury_occurred': '',
+        'u_store_closed': '',
+        'u_store_damaged': '',
+        'u_media_involved': '',
+        'u_suspect_enter': 'FRONT DOOR',
+        'u_targeted_assets': 'CASH',
+        'u_employee_affected_info': '',
+        'u_customers_affected_info': 'Joe Smith 555-1212',
+		'suspect':[{
+			'u_suspect_status': 'APPREHENDED',
+			'u_suspect_name': 'Bradley B',
+			'u_suspect_address': 'Main Street',
+			'u_suspect_dl': 'D01111',
+			'u_suspect_dob': '1998-01-01',
+			'u_suspect_race': 'NATIVE HAWAIIAN/PACIFIC ISLANDER',
+			'u_suspect_features': 'seven feet tall',
+		}],
+		'witness':[
+			{
+			'u_witness_name_phone': 'Bob 555 1212',
+			'u_witness_employee_id': '',
+			},
+			{
+			'u_witness_name_phone': 'Darryl 454 3333',
+			'u_witness_employee_id': '',
+			}
+		],
+		
+    },
+	{
+        'u_event_subtype': INC_ROBBERY,
+        'u_state': STATE_SUBMITTED,
+        'u_event_location': STR0307,
+        'u_author': STORE_307,
+        'u_incident_datetime': '2020-09-30 10:30:00',
+        'u_employee_id_reporting': '111111',
+        'u_description': 'one armed banditti',
+        'u_weapon_involved': 'true',
+        'u_injury_occurred': 'true',
+        'u_store_closed': 'true',
+        'u_store_damaged': 'true',
+        'u_media_involved': 'true',
+        'u_suspect_enter': 'FRONT DOOR',
+        'u_targeted_assets': 'CASH',
+        'u_employee_affected_info': '',
+        'u_customers_affected_info': 'Joe Smith 555-1212',
+		'suspect':[{
+			'u_suspect_status': 'APPREHENDED',
+			'u_suspect_name': 'Bradley B',
+			'u_suspect_address': 'Main Street',
+			'u_suspect_dl': 'D01111',
+			'u_suspect_dob': '1998-01-01',
+			'u_suspect_race': 'NATIVE HAWAIIAN/PACIFIC ISLANDER',
+			'u_suspect_features': 'midget',
+			},
+			{
+			'u_suspect_status': 'APPREHENDED',
+			'u_suspect_name': 'Lisa',
+			'u_suspect_address': '1434 Main Street',
+			'u_suspect_dl': 'D01112',
+			'u_suspect_dob': '2000-01-01',
+			'u_suspect_race': 'NATIVE HAWAIIAN/PACIFIC ISLANDER',
+			'u_suspect_features': 'blonde',
+		}],
+		'witness':[
+			{
+			'u_witness_name_phone': 'Mandrake 555 1212',
+			'u_witness_employee_id': '',
+		}
+		],
+		
+    }
+];
+
+// Other Criminal (non-shoplifting)
+var other_criminal_incidents = [{
+        'u_event_subtype': INC_OTHER_CRIMINAL,
+        'u_state': STATE_DRAFT,
+        'u_event_location': STR0307,
+        'u_author': STORE_307,
+        'u_incident_datetime': '2020-08-17 08:30:00',
+        'u_employee_id_reporting': '111111',
+        'u_description': 'one armed banditti',
+        'u_le_was_notified': 'YES, POLICE RESPONDED IN PERSON',
+        'u_weapon_involved': 'false',
+        'u_injury_occurred': 'false',
+        'u_store_closed': 'false',
+        'u_store_damaged': 'false',
+        'u_media_involved': 'true',
+        'u_suspect_enter': 'FRONT DOOR',
+		'suspect':[{
+			'u_suspect_status': 'APPREHENDED',
+			'u_suspect_name': 'Bradley B',
+			'u_suspect_address': 'Main Street',
+			'u_suspect_dl': 'D01111',
+			'u_suspect_dob': '1998-01-01',
+			'u_suspect_race': 'NATIVE HAWAIIAN/PACIFIC ISLANDER',
+			'u_suspect_features': 'seven feet tall'
+		}],
+		'police':[{
+			'u_le_agency': 'XYZ Agency',
+			'u_le_time_arrived': '2020-08-17 08:45:00',
+			'u_le_time_called': '2020-08-17 08:35:00',
+			'u_le_name': 'Constabulary',
+			'u_le_badge': 'B00001',
+			'u_le_case_number': 'C00001',
+			'u_le_disposition': 'ISSUED CITATION AND RELEASED'
+		}],
+		'witness':[{
+			'u_witness_name_phone': 'Bob Smith 555 1212',
+			'u_witness_employee_id': '121212'
+		}]
+    },
+    {
+        'u_event_subtype': INC_OTHER_CRIMINAL,
+        'u_state': STATE_DRAFT,
+        'u_event_location': STR0033,
+        'u_author': STORE_33,
+        'u_incident_datetime': '2020-08-02 18:30:00',
+        'u_employee_id_reporting': '111111',
+        'u_description': 'invading hordes',
+        'u_le_was_notified': 'YES POLICE RESPONDED IN PERSON',
+        'u_weapon_involved': 'false',
+        'u_injury_occurred': 'false',
+        'u_store_closed': 'false',
+        'u_store_damaged': 'false',
+        'u_media_involved': 'true',
+        'u_suspect_enter': 'FRONT DOOR',
+		'suspect':[{
+			'u_suspect_status': 'APPREHENDED',
+			'u_suspect_name': 'Billy Bob',
+			'u_suspect_address': 'Main Street',
+			'u_suspect_dl': 'D01111',
+			'u_suspect_dob': '1998-01-01',
+			'u_suspect_race': 'NATIVE HAWAIIAN/PACIFIC ISLANDER',
+			'u_suspect_features': 'seven feet tall'
+		}],
+		'police':[{
+			'u_le_agency': 'ABC Agency',
+			'u_le_time_arrived': '2020-08-17 08:45:00',
+			'u_le_time_called': '2020-08-17 08:35:00',
+			'u_le_name': 'Constabulary',
+			'u_le_badge': 'B00001',
+			'u_le_case_number': 'C00001',
+			'u_le_disposition': 'REPORTED ONLY'
+		}],
+		'witness':[{
+			'u_witness_name_phone': 'Bob Smith 555 1212',
+			'u_witness_employee_id': '121212'
+		}]
+    },
+    {
+        'u_event_subtype': INC_OTHER_CRIMINAL,
+        'u_state': STATE_SUBMITTED,
+        'u_event_location': STR0033,
+        'u_author': STORE_33,
+        'u_incident_datetime': '2020-09-14 12:35:00',
+        'u_employee_id_reporting': '111111',
+        'u_description': 'Halloween party gone wrong',
+        'u_le_was_notified': 'YES POLICE RESPONDED IN PERSON',
+        'u_weapon_involved': 'false',
+        'u_injury_occurred': 'false',
+        'u_store_closed': 'false',
+        'u_store_damaged': 'false',
+        'u_media_involved': 'true',
+        'u_suspect_enter': 'FRONT DOOR',
+		'suspect':[{
+			'u_suspect_status': 'APPREHENDED',
+			'u_suspect_name': 'Billy Bob',
+			'u_suspect_address': 'Main Street',
+			'u_suspect_dl': 'D01111',
+			'u_suspect_dob': '1998-01-01',
+			'u_suspect_race': 'NATIVE HAWAIIAN/PACIFIC ISLANDER',
+			'u_suspect_features': 'midget'
+		}],
+		'police':[{
+			'u_le_agency': 'ABC Agency',
+			'u_le_time_arrived': '2020-08-17 08:45:00',
+			'u_le_time_called': '2020-08-17 08:35:00',
+			'u_le_name': 'Constabulary',
+			'u_le_badge': 'B00001',
+			'u_le_case_number': 'C00001',
+			'u_le_disposition': 'REPORTED ONLY'
+		}],
+		'witness':[{
+			'u_witness_name_phone': 'Bob Smith 555 1212',
+			'u_witness_employee_id': '121212'
+		}]
+    },
+	{
+        'u_event_subtype': INC_OTHER_CRIMINAL,
+        'u_state': STATE_SUBMITTED,
+        'u_event_location': STR0078,
+        'u_author': STORE_78,
+        'u_incident_datetime': '2020-0928-14 11:35:00',
+        'u_employee_id_reporting': '111111',
+        'u_description': 'tragic gender reveal',
+        'u_le_was_notified': 'YES POLICE RESPONDED IN PERSON',
+        'u_weapon_involved': 'false',
+        'u_injury_occurred': 'true',
+        'u_store_closed': 'false',
+        'u_store_damaged': 'false',
+        'u_media_involved': 'true',
+        'u_suspect_enter': 'FRONT DOOR',
+		'suspect':[{
+			'u_suspect_status': 'APPREHENDED',
+			'u_suspect_name': 'Billy Bob',
+			'u_suspect_address': 'Main Street',
+			'u_suspect_dl': 'D01111',
+			'u_suspect_dob': '1998-01-01',
+			'u_suspect_race': 'NATIVE HAWAIIAN/PACIFIC ISLANDER',
+			'u_suspect_features': 'midget'
+		}],
+		'police':[{
+			'u_le_agency': 'ABC Agency',
+			'u_le_time_arrived': '2020-08-17 08:45:00',
+			'u_le_time_called': '2020-08-17 08:35:00',
+			'u_le_name': 'Constabulary',
+			'u_le_badge': 'B00001',
+			'u_le_case_number': 'C00001',
+			'u_le_disposition': 'REPORTED ONLY'
+		}],
+		'witness':[{
+			'u_witness_name_phone': 'Bob Smith 555 1212',
+			'u_witness_employee_id': '121212'
+		}]
+    }
+];
+
+var data = [];
+while (vehicle_incidents.length > 0) data.push(vehicle_incidents.pop());
+while (shoplifting_incidents.length > 0) data.push(shoplifting_incidents.pop());
+while (robbery_incidents.length > 0) data.push(robbery_incidents.pop());
+while (other_criminal_incidents.length > 0) data.push(other_criminal_incidents.pop());
+
+for (var i = 0; i < data.length; i++) {
+    var gr = new GlideRecord("x_42999_store_inc_incident");
+    gr.initialize();
+    var row = data[i];
+    for (var p in row) {
+        if (row.hasOwnProperty(p)) {
+            gr.setValue(p, row[p]);
+        }
+    }
+    gr.update();
+	
+    if (row.sku) {
+        for (var s = 0; s < row.sku.length; s++) {
+            var sku_row = row.sku[s];
+            var gr_sku = new GlideRecord("x_42999_store_inc_sku");
+            gr_sku.initialize();
+            for (var prop in sku_row) {
+                if (sku_row.hasOwnProperty(prop)) {
+                    gr_sku.setValue(prop, sku_row[prop]);
+                }
+            }
+            gr_sku.setValue('u_parent', gr.sys_id);
+            gr_sku.update();
+        }
+    }
+	
+	if (row.police) {
+        for (var p_index = 0; p_index < row.police.length; p_index++) {
+            var police_row = row.police[p_index];
+            var gr_police = new GlideRecord("x_42999_store_inc_police_response");
+            gr_police.initialize();
+            for (var police_prop in police_row) {
+                if (police_row.hasOwnProperty(police_prop)) {
+                    gr_police.setValue(police_prop, police_row[police_prop]);
+                }
+            }
+            gr_police.setValue('u_parent', gr.sys_id);
+            gr_police.update();
+        }
+    }
+	
+	if (row.witness) {
+        for (var w_index = 0; w_index < row.witness.length; w_index++) {
+            var witness_row = row.witness[w_index];
+            var gr_witness = new GlideRecord("x_42999_store_inc_witness");
+            gr_witness.initialize();
+            for (var witness_prop in witness_row) {
+                if (witness_row.hasOwnProperty(witness_prop)) {
+                    gr_witness.setValue(witness_prop, witness_row[witness_prop]);
+                }
+            }
+            gr_witness.setValue('u_parent', gr.sys_id);
+            gr_witness.update();
+        }
+    }
+	
+	if (row.suspect) {
+        for (var s_index = 0; s_index < row.suspect.length; s_index++) {
+            var suspect_row = row.suspect[s_index];
+            var gr_suspect = new GlideRecord("x_42999_store_inc_suspect");
+            gr_suspect.initialize();
+            for (var suspect_prop in suspect_row) {
+                if (suspect_row.hasOwnProperty(suspect_prop)) {
+                    gr_suspect.setValue(suspect_prop, suspect_row[suspect_prop]);
+                }
+            }
+            gr_suspect.setValue('u_parent', gr.sys_id);
+            gr_suspect.update();
+        }
+    }
+}]]></script>
+        <sys_class_name>sys_script_fix</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-05 18:23:57</sys_created_on>
+        <sys_id>01558be72f6310109e9157892799b646</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Populate incidents</sys_name>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_update_name>sys_script_fix_01558be72f6310109e9157892799b646</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-07 14:25:29</sys_updated_on>
+        <unloadable>false</unloadable>
+    </sys_script_fix>
+</record_update>

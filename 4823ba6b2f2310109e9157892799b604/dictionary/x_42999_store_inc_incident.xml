@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Store Incident" max_length="40" name="x_42999_store_inc_incident" sizeclass="26" type="collection">
+        <element attributes="encode_utf8=false" calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;// Add your code here&#13;&#10;&#9;return '';  // return the calculated value&#13;&#10;&#13;&#10;})(current);" default="javascript: gs.getUserID();" label="Author" max_length="32" name="u_author" read_only="true" reference="sys_user" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Customers affected" max_length="100" name="u_customers_affected" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Customer's DL" max_length="40" name="u_customer_dl" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Customer's name" max_length="40" name="u_customer_name" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Description" max_length="4000" name="u_description" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Employees affected" max_length="100" name="u_employees_affected" type="string"/>
+        <element attributes="encode_utf8=false" label="Location" max_length="32" name="u_event_location" reference="cmn_location" reference_qual="nameSTARTSWITHSTR^cityISNOTEMPTY^EQ" reference_qual_condition="nameSTARTSWITHSTR^cityISNOTEMPTY^EQ" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="VEHICLE_BREAKIN" label="Subtype" max_length="40" name="u_event_subtype" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Other Criminal" value="OTHER_CRIMINAL"/>
+                <element inactive_on_update="false" label="Robbery" value="ROBBERY"/>
+                <element inactive_on_update="false" label="Shoplifting" value="SHOPLIFTING"/>
+                <element inactive_on_update="false" label="Vehicle Breakin/Theft" value="VEHICLE_BREAKIN"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Incident Date/Time" max_length="40" name="u_incident_datetime" type="glide_date_time"/>
+        <element label="An injury occurred" max_length="40" name="u_injury_occurred" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="YES POLICE RESPONDED IN PERSON" label="Was Law Enforcement notified?" max_length="40" name="u_le_was_notified" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="No" value="NO"/>
+                <element inactive_on_update="false" label="Yes, police responded in person" value="YES POLICE RESPONDED IN PERSON"/>
+                <element inactive_on_update="false" label="Yes, report filed via phone" value="YES REPORT FILED VIA TELEPHONE"/>
+            </choice>
+        </element>
+        <element label="Media was involved" max_length="40" name="u_media_involved" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" default="DRAFT" label="State" max_length="40" name="u_state" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Draft" value="DRAFT"/>
+                <element inactive_on_update="false" label="Failed" value="FAILED"/>
+                <element inactive_on_update="false" label="Submitted" value="SUBMITTED"/>
+            </choice>
+        </element>
+        <element label="Store had to close" max_length="40" name="u_store_closed" type="boolean"/>
+        <element label="Store was damaged" max_length="40" name="u_store_damaged" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Targeted assets" max_length="40" name="u_targeted_assets" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Cash" value="CASH"/>
+                <element inactive_on_update="false" label="Firearms" value="FIREARMS"/>
+                <element inactive_on_update="false" label="Merchandise" value="MERCHANDISE"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Victim Name" max_length="40" name="u_victim_name" type="string"/>
+        <element label="A weapon was involved" max_length="40" name="u_weapon_involved" type="boolean"/>
+        <index name="index">
+            <element name="u_author"/>
+        </index>
+        <index name="index2">
+            <element name="u_event_location"/>
+        </index>
+    </element>
+</database>

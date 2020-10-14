@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_item_parameter">
+    <sys_sg_item_parameter action="DELETE">
+        <default_value/>
+        <name>Vehicle is_employee_vehicle</name>
+        <parent>2b9ebaa32f6310109e9157892799b674</parent>
+        <parent_table>sys_sg_write_back_action_item</parent_table>
+        <sys_class_name>sys_sg_item_parameter</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-05 17:40:56</sys_created_on>
+        <sys_id>2f9ebaa32f6310109e9157892799b674</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Vehicle is_employee_vehicle</sys_name>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_update_name>sys_sg_item_parameter_2f9ebaa32f6310109e9157892799b674</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-07 15:28:15</sys_updated_on>
+        <type>boolean</type>
+    </sys_sg_item_parameter>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</application>
+        <file_path/>
+        <instance_id>fdda684cdbdc7f4052cec597059619c8</instance_id>
+        <instance_name>dev75036</instance_name>
+        <name>sys_sg_item_parameter_2f9ebaa32f6310109e9157892799b674</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_item_parameter"><sys_sg_item_parameter action="INSERT_OR_UPDATE"><default_value/><name>Vehicle is_employee_vehicle</name><parent>2b9ebaa32f6310109e9157892799b674</parent><parent_table>sys_sg_write_back_action_item</parent_table><sys_class_name>sys_sg_item_parameter</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-10-05 17:40:56</sys_created_on><sys_id>2f9ebaa32f6310109e9157892799b674</sys_id><sys_mod_count>2</sys_mod_count><sys_name>Vehicle is_employee_vehicle</sys_name><sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package><sys_policy/><sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope><sys_update_name>sys_sg_item_parameter_2f9ebaa32f6310109e9157892799b674</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-10-07 15:28:15</sys_updated_on><type>boolean</type></sys_sg_item_parameter></record_update>]]></payload>
+        <payload_hash>629953476</payload_hash>
+        <record_name>Vehicle is_employee_vehicle</record_name>
+        <reverted_from/>
+        <source>c823ba6b2f2310109e9157892799b606</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-07 15:28:15</sys_created_on>
+        <sys_id>ff6330102fbf10109e9157892799b6d8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17503ad61820000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-07 15:28:15</sys_updated_on>
+        <type>Item Parameter</type>
+        <update_guid>7b63301098bf10109bfec486b339c2d8</update_guid>
+        <update_guid_history>7b63301098bf10109bfec486b339c2d8:629953476,4c03749c747f1010b8c75ea15905052b:332539887,1aaebea3c06310103c34bb9ee0654326:-1321410897</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-07 15:52:51</sys_created_on>
+        <sys_db_object display_value="" name="sys_sg_item_parameter">sys_sg_item_parameter</sys_db_object>
+        <sys_id>88b339e19c8342a896f4907bbd3cba40</sys_id>
+        <sys_metadata>2f9ebaa32f6310109e9157892799b674</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Vehicle is_employee_vehicle</sys_name>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_scope_delete display_value="">e917f26fd2df4032a7626372b05d5e64</sys_scope_delete>
+        <sys_update_name>sys_sg_item_parameter_2f9ebaa32f6310109e9157892799b674</sys_update_name>
+        <sys_update_version display_value="sys_sg_item_parameter_2f9ebaa32f6310109e9157892799b674">ff6330102fbf10109e9157892799b6d8</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-07 15:52:51</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_policy">
+    <sys_ui_policy action="INSERT_OR_UPDATE">
+        <active>false</active>
+        <conditions/>
+        <description/>
+        <global>true</global>
+        <inherit>false</inherit>
+        <isolate_script>true</isolate_script>
+        <model_id/>
+        <model_table/>
+        <on_load>true</on_load>
+        <order>100</order>
+        <reverse_if_false>true</reverse_if_false>
+        <run_scripts>true</run_scripts>
+        <script_false><![CDATA[function onCondition() {
+
+}]]></script_false>
+        <script_true><![CDATA[function onCondition() {
+    g_form.hideRelatedList("x_42999_store_inc_vehicle");
+    g_form.hideRelatedList("x_42999_store_inc_sku");
+}]]></script_true>
+        <set_values/>
+        <short_description>Robbery/Burglary</short_description>
+        <sys_class_name>sys_ui_policy</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-05 21:48:27</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>1e96ff2b2fe310109e9157892799b6c2</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Robbery/Burglary</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_update_name>sys_ui_policy_1e96ff2b2fe310109e9157892799b6c2</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-05 21:58:03</sys_updated_on>
+        <table>x_42999_store_inc_incident</table>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_ui_policy>
+</record_update>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Suspect" max_length="40" name="x_42999_store_inc_suspect" sizeclass="17" type="collection">
+        <element attributes="encode_utf8=false" label="Parent" max_length="32" name="u_parent" reference="x_42999_store_inc_incident" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Address" max_length="100" name="u_suspect_address" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Driver's License" max_length="40" name="u_suspect_dl" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="DOB" max_length="40" name="u_suspect_dob" type="glide_date"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="How did suspect enter the store?" max_length="40" name="u_suspect_enter" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Bay Door" value="BAY DOOR"/>
+                <element inactive_on_update="false" label="Ceiling/Skylight" value="CEILING/SKYLIGHT"/>
+                <element inactive_on_update="false" label="Front Door" value="FRONT DOOR"/>
+                <element inactive_on_update="false" label="Perimeter door" value="PERIMETER DOOR"/>
+                <element inactive_on_update="false" label="Wall" value="WALL"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Features" max_length="100" name="u_suspect_features" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Name" max_length="40" name="u_suspect_name" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="UNKNOWN" label="Race" max_length="40" name="u_suspect_race" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="African American/Black" value="AFRICAN AMERICAN/BLACK"/>
+                <element inactive_on_update="false" label="American Indian/Alaska Native" value="AMERICAN INDIAN/ALASKA NATIVE"/>
+                <element inactive_on_update="false" label="Asian" value="ASIAN"/>
+                <element inactive_on_update="false" label="Caucasian/White" value="CAUCASIAN/WHITE"/>
+                <element inactive_on_update="false" label="Hispanic/Latino" value="HISPANIC/LATINO"/>
+                <element inactive_on_update="false" label="Middle Eastern" value="MIDDLE EASTERN"/>
+                <element inactive_on_update="false" label="Native Hawaiian/Pacific Islander" value="NATIVE HAWAIIAN/PACIFIC ISLANDER"/>
+                <element inactive_on_update="false" label="Unknown" value="UNKNOWN"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="APPREHENDED" label="Status" max_length="40" name="u_suspect_status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Apprehended" value="APPREHENDED"/>
+                <element inactive_on_update="false" label="Deterred" value="DETERRED"/>
+                <element inactive_on_update="false" label="Not Apprehended" value="NOT APPREHENDED"/>
+            </choice>
+        </element>
+        <index name="index">
+            <element name="u_parent"/>
+        </index>
+    </element>
+</database>

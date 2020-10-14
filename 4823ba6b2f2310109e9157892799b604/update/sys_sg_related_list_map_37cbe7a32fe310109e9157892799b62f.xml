@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_related_list_map">
+    <sys_sg_related_list_map action="INSERT_OR_UPDATE">
+        <context_field/>
+        <destination_screen display_value="Police Responses">d39ebaa32f6310109e9157892799b616</destination_screen>
+        <related_list_screen display_value="Related List">3cbb2ba32fe310109e9157892799b68b</related_list_screen>
+        <relationship>x_42999_store_inc_police_response.u_parent</relationship>
+        <sys_class_name>sys_sg_related_list_map</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-05 20:58:22</sys_created_on>
+        <sys_id>37cbe7a32fe310109e9157892799b62f</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>d39ebaa32f6310109e9157892799b616</sys_name>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_update_name>sys_sg_related_list_map_37cbe7a32fe310109e9157892799b62f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-07 15:13:52</sys_updated_on>
+    </sys_sg_related_list_map>
+</record_update>

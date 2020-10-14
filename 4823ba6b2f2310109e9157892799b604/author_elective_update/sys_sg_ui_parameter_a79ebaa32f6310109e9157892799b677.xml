@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_ui_parameter">
+    <sys_sg_ui_parameter action="DELETE">
+        <button display_value="Add (Vehicle)">ab9ebaa32f6310109e9157892799b676</button>
+        <button_parent_table>x_42999_store_inc_vehicle</button_parent_table>
+        <carried>false</carried>
+        <constant/>
+        <default_value/>
+        <default_value_type>source_field</default_value_type>
+        <field_name>u_vehicle_make</field_name>
+        <input_source>user</input_source>
+        <input_style>inline</input_style>
+        <input_type>text</input_type>
+        <mandatory>false</mandatory>
+        <max_entries/>
+        <multi_entry>false</multi_entry>
+        <multi_select>false</multi_select>
+        <name>Make</name>
+        <order>20</order>
+        <parameter_type>button</parameter_type>
+        <placeholder/>
+        <screen/>
+        <search_type>starts_with</search_type>
+        <source_field/>
+        <sys_class_name>sys_sg_ui_parameter</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-05 17:40:56</sys_created_on>
+        <sys_id>a79ebaa32f6310109e9157892799b677</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Make</sys_name>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_update_name>sys_sg_ui_parameter_a79ebaa32f6310109e9157892799b677</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-07 15:36:03</sys_updated_on>
+        <table_name>x_42999_store_inc_vehicle</table_name>
+    </sys_sg_ui_parameter>
+    <sys_translated_text action="DELETE" query="documentkey=a79ebaa32f6310109e9157892799b677"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</application>
+        <file_path/>
+        <instance_id>fdda684cdbdc7f4052cec597059619c8</instance_id>
+        <instance_name>dev75036</instance_name>
+        <name>sys_sg_ui_parameter_a79ebaa32f6310109e9157892799b677</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_ui_parameter"><sys_sg_ui_parameter action="INSERT_OR_UPDATE"><button display_value="Add (Vehicle)">ab9ebaa32f6310109e9157892799b676</button><button_parent_table>x_42999_store_inc_vehicle</button_parent_table><carried>false</carried><constant/><default_value/><default_value_type>source_field</default_value_type><field_name>u_vehicle_make</field_name><input_source>user</input_source><input_style>inline</input_style><input_type>text</input_type><mandatory>false</mandatory><max_entries/><multi_entry>false</multi_entry><multi_select>false</multi_select><name>Make</name><order>20</order><parameter_type>button</parameter_type><placeholder/><screen/><search_type>starts_with</search_type><source_field/><sys_class_name>sys_sg_ui_parameter</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-10-05 17:40:56</sys_created_on><sys_id>a79ebaa32f6310109e9157892799b677</sys_id><sys_mod_count>1</sys_mod_count><sys_name>Make</sys_name><sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package><sys_policy/><sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope><sys_update_name>sys_sg_ui_parameter_a79ebaa32f6310109e9157892799b677</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-10-07 15:36:03</sys_updated_on><table_name>x_42999_store_inc_vehicle</table_name></sys_sg_ui_parameter><sys_translated_text action="delete_multiple" query="documentkey=a79ebaa32f6310109e9157892799b677"/></record_update>]]></payload>
+        <payload_hash>2041239212</payload_hash>
+        <record_name>Make</record_name>
+        <reverted_from/>
+        <source>c823ba6b2f2310109e9157892799b606</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-07 15:36:03</sys_created_on>
+        <sys_id>b13578502fbf10109e9157892799b638</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17503b483120000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-07 15:36:03</sys_updated_on>
+        <type>UI parameter</type>
+        <update_guid>3d357850febf101017fc26fee9a1b737</update_guid>
+        <update_guid_history>3d357850febf101017fc26fee9a1b737:2041239212,86ae7ea39563101095d22aaecc3923fa:1273491403</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-07 15:50:39</sys_created_on>
+        <sys_db_object display_value="" name="sys_sg_ui_parameter">sys_sg_ui_parameter</sys_db_object>
+        <sys_id>1cb11be3d77d4d88b85c0688e6c1bf84</sys_id>
+        <sys_metadata>a79ebaa32f6310109e9157892799b677</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Make</sys_name>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_scope_delete display_value="">e917f26fd2df4032a7626372b05d5e64</sys_scope_delete>
+        <sys_update_name>sys_sg_ui_parameter_a79ebaa32f6310109e9157892799b677</sys_update_name>
+        <sys_update_version display_value="sys_sg_ui_parameter_a79ebaa32f6310109e9157892799b677">b13578502fbf10109e9157892799b638</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-07 15:50:39</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

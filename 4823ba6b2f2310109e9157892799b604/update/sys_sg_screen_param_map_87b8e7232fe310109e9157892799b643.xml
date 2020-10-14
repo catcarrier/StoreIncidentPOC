@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_screen_param_map">
+    <sys_sg_screen_param_map action="INSERT_OR_UPDATE">
+        <item_parameter display_value="incident">f1f623ef2fa310109e9157892799b690</item_parameter>
+        <screen display_value="Suspects">2f9ebaa32f6310109e9157892799b64d</screen>
+        <sys_class_name>sys_sg_screen_param_map</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-05 20:44:56</sys_created_on>
+        <sys_id>87b8e7232fe310109e9157892799b643</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>f1f623ef2fa310109e9157892799b690</sys_name>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_update_name>sys_sg_screen_param_map_87b8e7232fe310109e9157892799b643</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-05 20:44:56</sys_updated_on>
+        <ui_parameter display_value="incident">8cb8a7232fe310109e9157892799b660</ui_parameter>
+    </sys_sg_screen_param_map>
+</record_update>

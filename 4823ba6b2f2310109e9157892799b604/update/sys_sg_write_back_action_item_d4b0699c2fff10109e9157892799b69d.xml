@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_write_back_action_item">
+    <sys_sg_write_back_action_item action="INSERT_OR_UPDATE">
+        <description/>
+        <execution_script/>
+        <name>New Other Criminal</name>
+        <query_condition/>
+        <sys_class_name>sys_sg_write_back_action_item</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-07 18:46:52</sys_created_on>
+        <sys_id>d4b0699c2fff10109e9157892799b69d</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>New Other Criminal</sys_name>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_update_name>sys_sg_write_back_action_item_d4b0699c2fff10109e9157892799b69d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-07 19:03:49</sys_updated_on>
+        <table>x_42999_store_inc_incident</table>
+        <template>u_event_subtype=OTHER_CRIMINAL^u_event_location={{Location}}^u_incident_datetime={{Incident Date/Time}}^u_description={{Description}}^u_le_was_notified={{Was law enforcement notified?}}^u_weapon_involved={{A weapon was involved}}^u_injury_occurred={{An injury occurred}}^u_store_closed={{Store had to close}}^u_store_damaged={{Store was damaged}}^u_media_involved={{The media was involved}}^EQ</template>
+        <type>new</type>
+        <use_current_record_as_condition>true</use_current_record_as_condition>
+        <use_fields_for_ref_lookup>false</use_fields_for_ref_lookup>
+    </sys_sg_write_back_action_item>
+    <sys_translated_text action="delete_multiple" query="documentkey=d4b0699c2fff10109e9157892799b69d"/>
+</record_update>

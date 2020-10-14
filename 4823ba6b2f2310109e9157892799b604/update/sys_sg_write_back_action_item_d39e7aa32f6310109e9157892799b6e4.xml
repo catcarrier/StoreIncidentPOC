@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_write_back_action_item">
+    <sys_sg_write_back_action_item action="INSERT_OR_UPDATE">
+        <description/>
+        <execution_script/>
+        <name>New Shoplifting</name>
+        <query_condition table="x_42999_store_inc_incident">sys_idSTARTSWITH{{Store Incident sys_id}}^EQ<item endquery="false" field="sys_id" goto="false" newquery="false" operator="STARTSWITH" or="false" value="{{Store Incident sys_id}}"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </query_condition>
+        <sys_class_name>sys_sg_write_back_action_item</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-05 17:40:54</sys_created_on>
+        <sys_id>d39e7aa32f6310109e9157892799b6e4</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>New Shoplifting</sys_name>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_update_name>sys_sg_write_back_action_item_d39e7aa32f6310109e9157892799b6e4</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-07 16:53:18</sys_updated_on>
+        <table>x_42999_store_inc_incident</table>
+        <template>u_description={{Store Incident u_description}}^u_event_location={{Store Incident u_event_location}}^u_event_subtype=SHOPLIFTING^u_incident_datetime={{Store Incident u_incident_datetime}}^u_injury_occurred={{Store Incident u_injury_occurred}}^u_le_was_notified={{Store Incident u_le_was_notified}}^u_media_involved={{Store Incident u_media_involved}}^u_state={{Store Incident u_state}}^u_store_closed={{Store Incident u_store_closed}}^u_store_damaged={{Store Incident u_store_damaged}}^u_weapon_involved={{weapon was involved}}^EQ</template>
+        <type>new</type>
+        <use_current_record_as_condition>false</use_current_record_as_condition>
+        <use_fields_for_ref_lookup>false</use_fields_for_ref_lookup>
+    </sys_sg_write_back_action_item>
+    <sys_translated_text action="delete_multiple" query="documentkey=d39e7aa32f6310109e9157892799b6e4"/>
+</record_update>

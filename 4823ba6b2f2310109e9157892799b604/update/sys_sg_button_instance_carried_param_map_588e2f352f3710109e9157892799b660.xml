@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_button_instance_carried_param_map">
+    <sys_sg_button_instance_carried_param_map action="INSERT_OR_UPDATE">
+        <button_instance display_value="Add...">639ebaa32f6310109e9157892799b642</button_instance>
+        <button_ui_parameter display_value="Parent">8e3d23352f3710109e9157892799b6e6</button_ui_parameter>
+        <screen_ui_parameter display_value="incident">d6092b232fe310109e9157892799b6f2</screen_ui_parameter>
+        <sys_class_name>sys_sg_button_instance_carried_param_map</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-12 20:58:40</sys_created_on>
+        <sys_id>588e2f352f3710109e9157892799b660</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>d6092b232fe310109e9157892799b6f2</sys_name>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_update_name>sys_sg_button_instance_carried_param_map_588e2f352f3710109e9157892799b660</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-12 20:58:40</sys_updated_on>
+    </sys_sg_button_instance_carried_param_map>
+</record_update>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_screen_field">
+    <sys_sg_screen_field action="DELETE">
+        <data_item_field_name>u_parent</data_item_field_name>
+        <description_text/>
+        <description_text_field/>
+        <description_text_type/>
+        <field_name/>
+        <hidden>false</hidden>
+        <order>30</order>
+        <record_id_field/>
+        <screen display_value="Details">279ebaa32f6310109e9157892799b62c</screen>
+        <screen_data_item_table>x_42999_store_inc_sku</screen_data_item_table>
+        <sys_class_name>sys_sg_screen_field</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-05 17:40:55</sys_created_on>
+        <sys_id>6f9ebaa32f6310109e9157892799b642</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>u_parent</sys_name>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_update_name>sys_sg_screen_field_6f9ebaa32f6310109e9157892799b642</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-05 17:40:55</sys_updated_on>
+        <type>auto</type>
+        <value_only>false</value_only>
+    </sys_sg_screen_field>
+    <sys_translated_text action="DELETE" query="documentkey=6f9ebaa32f6310109e9157892799b642"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</application>
+        <file_path/>
+        <instance_id>fdda684cdbdc7f4052cec597059619c8</instance_id>
+        <instance_name>dev75036</instance_name>
+        <name>sys_sg_screen_field_6f9ebaa32f6310109e9157892799b642</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_screen_field"><sys_sg_screen_field action="INSERT_OR_UPDATE"><data_item_field_name>u_parent</data_item_field_name><description_text/><description_text_field/><description_text_type/><field_name/><hidden>false</hidden><order>30</order><record_id_field/><screen display_value="Details">279ebaa32f6310109e9157892799b62c</screen><screen_data_item_table>x_42999_store_inc_sku</screen_data_item_table><sys_class_name>sys_sg_screen_field</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-10-05 17:40:55</sys_created_on><sys_id>6f9ebaa32f6310109e9157892799b642</sys_id><sys_mod_count>0</sys_mod_count><sys_name>u_parent</sys_name><sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package><sys_policy/><sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope><sys_update_name>sys_sg_screen_field_6f9ebaa32f6310109e9157892799b642</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-10-05 17:40:55</sys_updated_on><type>auto</type><value_only>false</value_only></sys_sg_screen_field><sys_translated_text action="delete_multiple" query="documentkey=6f9ebaa32f6310109e9157892799b642"/></record_update>]]></payload>
+        <payload_hash>-794378240</payload_hash>
+        <record_name>u_parent</record_name>
+        <reverted_from/>
+        <source>c823ba6b2f2310109e9157892799b606</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-05 17:41:03</sys_created_on>
+        <sys_id>edae3ea32f6310109e9157892799b6f9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>174f9da3ea60000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-05 17:41:03</sys_updated_on>
+        <type>Screen fields</type>
+        <update_guid>69ae3ea33c63101039ef5a40addf1cf9</update_guid>
+        <update_guid_history>69ae3ea33c63101039ef5a40addf1cf9:-794378240</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-07 20:23:17</sys_created_on>
+        <sys_db_object display_value="" name="sys_sg_screen_field">sys_sg_screen_field</sys_db_object>
+        <sys_id>0b1cfdcb49164f1583f748a484362101</sys_id>
+        <sys_metadata>6f9ebaa32f6310109e9157892799b642</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>u_parent</sys_name>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_scope_delete display_value="">e917f26fd2df4032a7626372b05d5e64</sys_scope_delete>
+        <sys_update_name>sys_sg_screen_field_6f9ebaa32f6310109e9157892799b642</sys_update_name>
+        <sys_update_version display_value="sys_sg_screen_field_6f9ebaa32f6310109e9157892799b642">edae3ea32f6310109e9157892799b6f9</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-07 20:23:17</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

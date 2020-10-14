@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Police Response" max_length="40" name="x_42999_store_inc_police_response" sizeclass="17" type="collection">
+        <element attributes="edge_encryption_enabled=true" label="Law Enforcement Agency" max_length="40" name="u_le_agency" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Badge Number" max_length="40" name="u_le_badge" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Case Number" max_length="40" name="u_le_case_number" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Disposition" max_length="40" name="u_le_disposition" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Arrested" value="ARRESTED"/>
+                <element inactive_on_update="false" label="Issued citation and released" value="ISSUED CITATION AND RELEASED"/>
+                <element inactive_on_update="false" label="Reported Only" value="REPORTED ONLY"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Responding officer's name" max_length="40" name="u_le_name" type="string"/>
+        <element label="Time LE Arrived" max_length="40" name="u_le_time_arrived" type="glide_date_time"/>
+        <element label="Time LE called" max_length="40" name="u_le_time_called" type="glide_date_time"/>
+        <element attributes="encode_utf8=false" label="Parent" max_length="32" name="u_parent" reference="x_42999_store_inc_incident" type="reference"/>
+        <index name="index">
+            <element name="u_parent"/>
+        </index>
+    </element>
+</database>

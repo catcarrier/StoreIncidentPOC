@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="u_le_disposition" table="x_42999_store_inc_police_response" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>u_le_disposition</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Arrested</label>
+            <language>en</language>
+            <name>x_42999_store_inc_police_response</name>
+            <sequence/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-10-05 17:14:26</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>678876af2f2310109e9157892799b6c6</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-10-05 17:14:26</sys_updated_on>
+            <value>ARRESTED</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>u_le_disposition</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Issued citation and released</label>
+            <language>en</language>
+            <name>x_42999_store_inc_police_response</name>
+            <sequence/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-10-05 17:14:26</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>a38876af2f2310109e9157892799b6c4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-10-05 17:14:26</sys_updated_on>
+            <value>ISSUED CITATION AND RELEASED</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>u_le_disposition</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Reported Only</label>
+            <language>en</language>
+            <name>x_42999_store_inc_police_response</name>
+            <sequence/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-10-05 17:14:26</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>af8876af2f2310109e9157892799b6c1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-10-05 17:14:26</sys_updated_on>
+            <value>REPORTED ONLY</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>u_le_disposition</element>
+            <name>x_42999_store_inc_police_response</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-10-05 17:14:26</sys_created_on>
+            <sys_id>6b8876af2f2310109e9157892799b6c2</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>u_le_disposition</sys_name>
+            <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+            <sys_update_name>sys_choice_x_42999_store_inc_police_response_u_le_disposition</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-10-05 17:14:26</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

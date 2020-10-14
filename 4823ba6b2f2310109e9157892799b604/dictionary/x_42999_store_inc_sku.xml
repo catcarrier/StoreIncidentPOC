@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="SKU" max_length="40" name="x_42999_store_inc_sku" sizeclass="19" type="collection">
+        <element attributes="edge_encryption_enabled=true" label="Description" max_length="100" name="u_description" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="R" label="Disposition" max_length="40" name="u_disposition" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Damaged" value="D"/>
+                <element inactive_on_update="false" label="Not Recovered" value="N"/>
+                <element inactive_on_update="false" label="Recovered" value="R"/>
+            </choice>
+        </element>
+        <element attributes="encode_utf8=false" label="Parent" max_length="32" name="u_parent" reference="x_42999_store_inc_incident" type="reference"/>
+        <element label="Quantity" max_length="40" name="u_quantity" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" label="SKU" max_length="40" name="u_sku" type="string"/>
+        <element label="Total Price" max_length="15" name="u_total_price" type="decimal"/>
+        <element label="Unit Price" max_length="15" name="u_unit_price" type="decimal"/>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="MERCHANDISE" label="Value Type" max_length="40" name="value_type" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Cash" value="CASH"/>
+                <element inactive_on_update="false" label="Debit/Credit Card" value="DEBIT/CREDIT CARD"/>
+                <element inactive_on_update="false" label="Merchandise" value="MERCHANDISE"/>
+                <element inactive_on_update="false" label="Other" value="OTHER"/>
+                <element inactive_on_update="false" label="Refunds" value="REFUNDS"/>
+                <element inactive_on_update="false" label="Store Value Card" value="STORED VALUE CARD"/>
+            </choice>
+        </element>
+        <index name="index">
+            <element name="u_parent"/>
+        </index>
+    </element>
+</database>

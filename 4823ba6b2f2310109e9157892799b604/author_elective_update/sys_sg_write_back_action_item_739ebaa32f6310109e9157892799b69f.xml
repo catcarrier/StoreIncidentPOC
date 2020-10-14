@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_write_back_action_item">
+    <sys_sg_write_back_action_item action="DELETE">
+        <description/>
+        <execution_script/>
+        <name>Delete (Log)</name>
+        <query_condition/>
+        <sys_class_name>sys_sg_write_back_action_item</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-05 17:40:56</sys_created_on>
+        <sys_id>739ebaa32f6310109e9157892799b69f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Delete (Log)</sys_name>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_update_name>sys_sg_write_back_action_item_739ebaa32f6310109e9157892799b69f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-05 17:40:56</sys_updated_on>
+        <table>x_42999_store_inc_log</table>
+        <template/>
+        <type>delete</type>
+        <use_current_record_as_condition>true</use_current_record_as_condition>
+        <use_fields_for_ref_lookup>false</use_fields_for_ref_lookup>
+    </sys_sg_write_back_action_item>
+    <sys_translated_text action="DELETE" query="documentkey=739ebaa32f6310109e9157892799b69f"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</application>
+        <file_path/>
+        <instance_id>fdda684cdbdc7f4052cec597059619c8</instance_id>
+        <instance_name>dev75036</instance_name>
+        <name>sys_sg_write_back_action_item_739ebaa32f6310109e9157892799b69f</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_write_back_action_item"><sys_sg_write_back_action_item action="INSERT_OR_UPDATE"><description/><execution_script/><name>Delete (Log)</name><query_condition/><sys_class_name>sys_sg_write_back_action_item</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-10-05 17:40:56</sys_created_on><sys_id>739ebaa32f6310109e9157892799b69f</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Delete (Log)</sys_name><sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package><sys_policy/><sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope><sys_update_name>sys_sg_write_back_action_item_739ebaa32f6310109e9157892799b69f</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-10-05 17:40:56</sys_updated_on><table>x_42999_store_inc_log</table><template/><type>delete</type><use_current_record_as_condition>true</use_current_record_as_condition><use_fields_for_ref_lookup>false</use_fields_for_ref_lookup></sys_sg_write_back_action_item><sys_translated_text action="delete_multiple" query="documentkey=739ebaa32f6310109e9157892799b69f"/></record_update>]]></payload>
+        <payload_hash>679261683</payload_hash>
+        <record_name>Delete (Log)</record_name>
+        <reverted_from/>
+        <source>c823ba6b2f2310109e9157892799b606</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-05 17:41:08</sys_created_on>
+        <sys_id>76aefea32f6310109e9157892799b615</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>174f9da51900000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-05 17:41:08</sys_updated_on>
+        <type>Action item</type>
+        <update_guid>feaefea3766310105633599f147bbe14</update_guid>
+        <update_guid_history>feaefea3766310105633599f147bbe14:679261683</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-05 19:53:23</sys_created_on>
+        <sys_db_object display_value="" name="sys_sg_write_back_action_item">sys_sg_write_back_action_item</sys_db_object>
+        <sys_id>93d3ff5b3e02472abd1fa8872c0fe5d1</sys_id>
+        <sys_metadata>739ebaa32f6310109e9157892799b69f</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Delete (Log)</sys_name>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_scope_delete display_value="">e917f26fd2df4032a7626372b05d5e64</sys_scope_delete>
+        <sys_update_name>sys_sg_write_back_action_item_739ebaa32f6310109e9157892799b69f</sys_update_name>
+        <sys_update_version display_value="sys_sg_write_back_action_item_739ebaa32f6310109e9157892799b69f">76aefea32f6310109e9157892799b615</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-05 19:53:23</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

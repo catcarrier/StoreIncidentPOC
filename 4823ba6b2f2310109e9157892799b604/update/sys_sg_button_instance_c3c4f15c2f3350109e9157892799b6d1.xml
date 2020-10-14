@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_button_instance">
+    <sys_sg_button_instance action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <button display_value="Edit (Witness)">3f9ebaa32f6310109e9157892799b698</button>
+        <color_theme>primary</color_theme>
+        <description/>
+        <field_name/>
+        <icon/>
+        <label>Edit</label>
+        <location>trailing_swipe</location>
+        <name>Edit</name>
+        <order>10</order>
+        <parent>3b9ebaa32f6310109e9157892799b691</parent>
+        <parent_table>sys_sg_master_item</parent_table>
+        <sys_class_name>sys_sg_button_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-07 20:13:50</sys_created_on>
+        <sys_id>c3c4f15c2f3350109e9157892799b6d1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Edit</sys_name>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_update_name>sys_sg_button_instance_c3c4f15c2f3350109e9157892799b6d1</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-07 20:13:50</sys_updated_on>
+        <table>x_42999_store_inc_witness</table>
+    </sys_sg_button_instance>
+    <sys_translated_text action="delete_multiple" query="documentkey=c3c4f15c2f3350109e9157892799b6d1"/>
+</record_update>

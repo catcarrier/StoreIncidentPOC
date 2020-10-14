@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_master_item">
+    <sys_sg_master_item action="INSERT_OR_UPDATE">
+        <condition_order/>
+        <datasource_table>x_42999_store_inc_incident</datasource_table>
+        <datasource_table_condition table="x_42999_store_inc_incident">u_incident_datetimeRELATIVEGT@dayofweek@ago@60^u_stateINDRAFT,FAILED<item endquery="false" field="u_incident_datetime" goto="false" newquery="false" operator="RELATIVE" or="false" value="GT@dayofweek@ago@60"/>
+            <item display_value="DRAFT,FAILED" endquery="false" field="u_state" goto="false" newquery="false" operator="IN" or="false" value="DRAFT,FAILED"/>
+        </datasource_table_condition>
+        <embedded_screen/>
+        <item_view display_value="My Store's In-Progress Incidents Item View">749453a32fa310109e9157892799b6b4</item_view>
+        <name>My Store's In-Progress Incidents Master Item</name>
+        <sys_class_name>sys_sg_master_item</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-05 19:16:52</sys_created_on>
+        <sys_id>789453a32fa310109e9157892799b6bc</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>My Store's In-Progress Incidents Master Item</sys_name>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_update_name>sys_sg_master_item_789453a32fa310109e9157892799b6bc</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-05 19:16:52</sys_updated_on>
+    </sys_sg_master_item>
+</record_update>

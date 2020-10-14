@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_button_instance">
+    <sys_sg_button_instance action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <button display_value="Edit (Shoplifting)">5f9ebaa32f6310109e9157892799b609</button>
+        <color_theme>primary</color_theme>
+        <description/>
+        <field_name/>
+        <icon/>
+        <label>Edit</label>
+        <location>trailing_swipe</location>
+        <name>Edit</name>
+        <order>90</order>
+        <parent>789453a32fa310109e9157892799b6bc</parent>
+        <parent_table>sys_sg_master_item</parent_table>
+        <sys_class_name>sys_sg_button_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-12 15:02:45</sys_created_on>
+        <sys_id>7a8d56312f7310109e9157892799b649</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Edit</sys_name>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_update_name>sys_sg_button_instance_7a8d56312f7310109e9157892799b649</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-12 15:09:33</sys_updated_on>
+        <table>x_42999_store_inc_incident</table>
+    </sys_sg_button_instance>
+    <sys_translated_text action="delete_multiple" query="documentkey=7a8d56312f7310109e9157892799b649"/>
+</record_update>

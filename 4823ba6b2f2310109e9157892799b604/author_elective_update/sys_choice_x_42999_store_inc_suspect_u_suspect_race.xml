@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="u_suspect_race" table="x_42999_store_inc_suspect" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>u_suspect_race</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>African American/Black</label>
+            <language>en</language>
+            <name>x_42999_store_inc_suspect</name>
+            <sequence/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-10-05 17:31:57</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>dc9c32632f6310109e9157892799b646</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-10-05 17:31:57</sys_updated_on>
+            <value>AFRICAN AMERICAN/BLACK</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>u_suspect_race</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>American Indian/Alaska Native</label>
+            <language>en</language>
+            <name>x_42999_store_inc_suspect</name>
+            <sequence/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-10-05 17:31:57</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>909c32632f6310109e9157892799b649</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-10-05 17:31:57</sys_updated_on>
+            <value>AMERICAN INDIAN/ALASKA NATIVE</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>u_suspect_race</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Asian</label>
+            <language>en</language>
+            <name>x_42999_store_inc_suspect</name>
+            <sequence/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-10-05 17:31:57</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>549c32632f6310109e9157892799b64b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-10-05 17:31:57</sys_updated_on>
+            <value>ASIAN</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>u_suspect_race</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Caucasian/White</label>
+            <language>en</language>
+            <name>x_42999_store_inc_suspect</name>
+            <sequence/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-10-05 17:31:57</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>189c32632f6310109e9157892799b64d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-10-05 17:31:57</sys_updated_on>
+            <value>CAUCASIAN/WHITE</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>u_suspect_race</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Hispanic/Latino</label>
+            <language>en</language>
+            <name>x_42999_store_inc_suspect</name>
+            <sequence/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-10-05 17:31:57</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>d89c32632f6310109e9157892799b64f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-10-05 17:31:57</sys_updated_on>
+            <value>HISPANIC/LATINO</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>u_suspect_race</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Middle Eastern</label>
+            <language>en</language>
+            <name>x_42999_store_inc_suspect</name>
+            <sequence/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-10-05 17:31:57</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>9c9c32632f6310109e9157892799b651</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-10-05 17:31:57</sys_updated_on>
+            <value>MIDDLE EASTERN</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>u_suspect_race</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Native Hawaiian/Pacific Islander</label>
+            <language>en</language>
+            <name>x_42999_store_inc_suspect</name>
+            <sequence/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-10-05 17:31:57</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>509c32632f6310109e9157892799b654</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-10-06 21:51:04</sys_updated_on>
+            <value>NATIVE HAWAIIAN/PACIFIC ISLANDER</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>u_suspect_race</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Unknown</label>
+            <language>en</language>
+            <name>x_42999_store_inc_suspect</name>
+            <sequence/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-10-05 17:31:57</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>1c9c32632f6310109e9157892799b644</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-10-05 17:31:57</sys_updated_on>
+            <value>UNKNOWN</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>u_suspect_race</element>
+            <name>x_42999_store_inc_suspect</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-10-05 17:31:57</sys_created_on>
+            <sys_id>949c32632f6310109e9157892799b645</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>u_suspect_race</sys_name>
+            <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+            <sys_update_name>sys_choice_x_42999_store_inc_suspect_u_suspect_race</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-10-05 17:31:57</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

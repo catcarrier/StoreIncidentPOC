@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_action_param_map">
+    <sys_sg_action_param_map action="DELETE">
+        <button display_value="Edit Button (Vehicle)">339ebaa32f6310109e9157892799b67e</button>
+        <item_parameter display_value="Vehicle u_parent">b79ebaa32f6310109e9157892799b67c</item_parameter>
+        <sys_class_name>sys_sg_action_param_map</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-05 17:40:56</sys_created_on>
+        <sys_id>f79ebaa32f6310109e9157892799b68c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>b79ebaa32f6310109e9157892799b67c</sys_name>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_update_name>sys_sg_action_param_map_f79ebaa32f6310109e9157892799b68c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-05 17:40:56</sys_updated_on>
+        <ui_parameter display_value="Parent">3f9ebaa32f6310109e9157892799b67e</ui_parameter>
+    </sys_sg_action_param_map>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</application>
+        <file_path/>
+        <instance_id>fdda684cdbdc7f4052cec597059619c8</instance_id>
+        <instance_name>dev75036</instance_name>
+        <name>sys_sg_action_param_map_f79ebaa32f6310109e9157892799b68c</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_action_param_map"><sys_sg_action_param_map action="INSERT_OR_UPDATE"><button display_value="Edit Button (Vehicle)">339ebaa32f6310109e9157892799b67e</button><item_parameter display_value="Vehicle u_parent">b79ebaa32f6310109e9157892799b67c</item_parameter><sys_class_name>sys_sg_action_param_map</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-10-05 17:40:56</sys_created_on><sys_id>f79ebaa32f6310109e9157892799b68c</sys_id><sys_mod_count>0</sys_mod_count><sys_name>b79ebaa32f6310109e9157892799b67c</sys_name><sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package><sys_policy/><sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope><sys_update_name>sys_sg_action_param_map_f79ebaa32f6310109e9157892799b68c</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-10-05 17:40:56</sys_updated_on><ui_parameter display_value="Parent">3f9ebaa32f6310109e9157892799b67e</ui_parameter></sys_sg_action_param_map></record_update>]]></payload>
+        <payload_hash>-1972598270</payload_hash>
+        <record_name>b79ebaa32f6310109e9157892799b67c</record_name>
+        <reverted_from/>
+        <source>c823ba6b2f2310109e9157892799b606</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-05 17:41:06</sys_created_on>
+        <sys_id>daaebea32f6310109e9157892799b643</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>174f9da4a840000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-05 17:41:06</sys_updated_on>
+        <type>Action parameters mapping</type>
+        <update_guid>56aebea333631010a07c20d3848a8c43</update_guid>
+        <update_guid_history>56aebea333631010a07c20d3848a8c43:-1972598270</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-07 21:54:08</sys_created_on>
+        <sys_db_object display_value="" name="sys_sg_action_param_map">sys_sg_action_param_map</sys_db_object>
+        <sys_id>4be5143a8dd74b10b97835ae6051a900</sys_id>
+        <sys_metadata>f79ebaa32f6310109e9157892799b68c</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>b79ebaa32f6310109e9157892799b67c</sys_name>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_scope_delete display_value="">e917f26fd2df4032a7626372b05d5e64</sys_scope_delete>
+        <sys_update_name>sys_sg_action_param_map_f79ebaa32f6310109e9157892799b68c</sys_update_name>
+        <sys_update_version display_value="sys_sg_action_param_map_f79ebaa32f6310109e9157892799b68c">daaebea32f6310109e9157892799b643</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-07 21:54:08</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

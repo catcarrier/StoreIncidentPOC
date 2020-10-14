@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_screen_field">
+    <sys_sg_screen_field action="INSERT_OR_UPDATE">
+        <data_item_field_name>u_author</data_item_field_name>
+        <description_text/>
+        <description_text_field/>
+        <description_text_type/>
+        <field_name/>
+        <hidden>false</hidden>
+        <order>10</order>
+        <record_id_field/>
+        <screen display_value="Details">8f9e7aa32f6310109e9157892799b6d9</screen>
+        <screen_data_item_table>x_42999_store_inc_incident</screen_data_item_table>
+        <sys_class_name>sys_sg_screen_field</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-05 17:40:54</sys_created_on>
+        <sys_id>d79e7aa32f6310109e9157892799b6f4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>u_author</sys_name>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_update_name>sys_sg_screen_field_d79e7aa32f6310109e9157892799b6f4</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-05 17:40:54</sys_updated_on>
+        <type>auto</type>
+        <value_only>false</value_only>
+    </sys_sg_screen_field>
+    <sys_translated_text action="delete_multiple" query="documentkey=d79e7aa32f6310109e9157892799b6f4"/>
+</record_update>
