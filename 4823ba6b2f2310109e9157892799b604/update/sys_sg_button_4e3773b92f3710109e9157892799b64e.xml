@@ -6,7 +6,7 @@
         <button_table_field_name/>
         <cancel_label/>
         <condition/>
-        <condition_script/>
+        <condition_script>javascript: new IncidentUtils().allowAddSuspect(current);</condition_script>
         <condition_type>script</condition_type>
         <confirm_label/>
         <confirmation_message/>
@@ -43,14 +43,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-10-12 21:35:29</sys_created_on>
         <sys_id>4e3773b92f3710109e9157892799b64e</sys_id>
-        <sys_mod_count>10</sys_mod_count>
+        <sys_mod_count>11</sys_mod_count>
         <sys_name>add (Suspect) (g)</sys_name>
         <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
         <sys_policy/>
         <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
         <sys_update_name>sys_sg_button_4e3773b92f3710109e9157892799b64e</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-10-14 15:58:47</sys_updated_on>
+        <sys_updated_on>2020-10-14 20:58:34</sys_updated_on>
         <table>x_42999_store_inc_suspect</table>
         <take_value_from_field>false</take_value_from_field>
         <type>write_back</type>

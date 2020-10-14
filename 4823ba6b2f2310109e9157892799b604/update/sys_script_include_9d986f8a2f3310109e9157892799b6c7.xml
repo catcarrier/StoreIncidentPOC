@@ -10,172 +10,204 @@
         <script><![CDATA[var IncidentUtils = Class.create();
 IncidentUtils.prototype = {
     initialize: function() {
-		this.INCIDENT_LOCATION          = "u_event_location";
-		this.INCIDENT_STATE             = "u_state";
-		this.INCIDENT_INCOMPLETE_STATES = ["DRAFT","FAILED"];
-	},
+        this.INCIDENT_LOCATION = "u_event_location";
+        this.INCIDENT_STATE = "u_state";
+        this.INCIDENT_INCOMPLETE_STATES = ["DRAFT", "FAILED"];
+    },
 
-	getUserLocation: function() {
-		var sys_id = gs.getUserID();
+    getUserLocation: function(user_id) {
+        var gr = new GlideRecord("sys_user");
+        gr.get('sys_id', user_id);
+        var value = gr.getValue("location");
+        return value;
+    },
+
+    // Return a list of location sys_ids to be considered a match with the
+	// current user. The list is:
+    // -- The user's location, plus
+    // -- Locations matching "STR" plus the digits in the user's user_name, *if* the
+    //    name matches /store[a-z]{0,}\d{1,4}/gi
+    // 
+    // user_name             Result
+    // ---------             ------
+    // "A123456"             [<user's location>]
+    // "storedir179"         [<user's location>, <location(s) named STR0179>]
+	//
+    getUserEligibleLocations: function(user_id) {
+		var locations = [];
+		
+		// first get the user's location is populated
 		var gr = new GlideRecord("sys_user");
-		gr.get('sys_id', sys_id);
-		var value = gr.getValue("location");	
-		return value;
-	},
-	
-	standardIncidentActionAllow: function(incident) {
-		var location = this.getUserLocation();
-		var condition1 = this.INCIDENT_INCOMPLETE_STATES.indexOf( incident.getValue(this.INCIDENT_STATE) ) > -1;
-		var condition2 = (incident.getValue(this.INCIDENT_LOCATION) == location);
-		return condition1 && condition1;
-	},
-	
-	standardChildActionAllow: function(child) {
-		var sys_id = child.u_parent;
-		var gr = new GlideRecord("x_42999_store_inc_incident");
-		var flag = gr.get(sys_id);
-		if( !flag ) return false; // parent no longer exists
-		return this.standardIncidentActionAllow(gr);
-	},
-	
-	allowEditIncident: function(incident) {
+		gr.get( user_id );
+		if(gr.location) locations.push(gr.location);
 		
-		//TODO
+		// Second, for store users only, get any location matching the
+		// digits in their username
+        var STORE_USER_PATTERN = /store[a-z]{0,}\d{1,4}/gi;
+        var user_name = gr.getValue("user_name");
+        if (STORE_USER_PATTERN.test(user_name)) {
+            var storeNumber = user_name.split("")
+                .filter(function(e) {
+                    return ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"].indexOf(e) > -1;
+                })
+                .join(""); // "33"
+            var padding = '0'.repeat(4 - storeNumber.length); // '00'
+            gr = new GlideRecord('cmn_location');
+            gr.addQuery('name', 'STARTSWITH', 'STR' + padding + storeNumber); // 'STR0033'
+            gr.query();
+            while (gr.next()) {
+                var value = gr.getValue('sys_id');
+                if (locations.indexOf(value == -1)) locations.push[value];
+            }
+        }
 		
-	},
-	
-	allowDeleteIncident: function(incident) {
-		//TODO
-	},
-	
-    allowAddSuspect: function(incident) {
-		return this.standardIncidentActionAllow(incident);
-    },
-	
-	allowEditSuspect: function(suspect) {
-		return this.standardChildActionAllow(suspect);
-    },
-	
-    allowDeleteSuspect: function(suspect) {
-        return this.standardChildActionAllow(suspect);
-    },
-	
-	allowAddVehicle: function(incident) {
-        return this.standardIncidentActionAllow(incident);
-    },
-	
-	allowEditVehicle: function(vehicle) {
-		return this.standardChildActionAllow(vehicle);
-    },
-	
-    allowDeleteVehicle: function(vehicle) {
-        return this.standardChildActionAllow(vehicle);
-    },
-	
-	allowAddPolice: function(incident) {
-        return this.standardIncidentActionAllow(incident);
-    },
-	
-	allowEditPolice: function(police) {
-       return this.standardChildActionAllow(police);
-    },
-	
-    allowDeletePolice: function(police) {
-        return this.standardChildActionAllow(police);
-    },
-	
-	allowAddWitness: function(incident) {
-        return this.standardIncidentActionAllow(incident);
-    },
-	
-	allowEditWitness: function(witness) {
-       return this.standardChildActionAllow(witness);
-    },
-	
-    allowDeleteWitness: function(witness) {
-        return this.standardChildActionAllow(witness);
-    },
-	
-	allowAddSKU: function(incident) {
-        return this.standardIncidentActionAllow(incident);
-    },
-	
-	allowEditSKU: function(sku) {
-       return this.standardChildActionAllow(sku);
-    },
-	
-	allowDeleteSKU: function(sku) {
-        return this.standardChildActionAllow(sku);
-    },
-	
-    allowCopySKU: function(sku) {
-        return this.standardChildActionAllow(sku);
+		return locations;
     },
 
-    getMyLocationSysID: function() {
-        var user_sys_id = gs.getUserID();
-        var gr = new GlideRecord('sys_user');
-        gr.get('sys_id', user_sys_id);
-        return gr.getValue('location');
-    },
-
-    // return true if the current user is the author of this incident
-    isAuthor: function(gr) {
+	// return true if the current user is the author of this incident
+    isAuthor: function(gr, user_id ) {
         if (!gr) return false;
-        var author = gr.getValue('u_author');
-        return gs.getUserID() == author;
+        return user_id == gr.getValue('u_author');
+    },
+	
+	// Return true if:
+	// -- incident state is Draft or Failed, and
+	// -- user is the incident author, or the location is one associated with this user
+	//
+    standardIncidentActionAllow: function(incident, user_id) {
+        if (this.INCIDENT_INCOMPLETE_STATES.indexOf(incident.getValue(this.INCIDENT_STATE)) == -1){
+			gs.info("standardIncidentActionAllow returning false b/c state no in " + this.INCIDENT_INCOMPLETE_STATES.join(", "));
+			return false;
+		}
+		
+		if(this.isAuthor( incident, user_id )) {
+			gs.info("standardIncidentActionAllow returning true b/c " + user_id + " is author");
+			return true;
+		}
+		
+		var location = this.getUserLocation(user_id);
+		if(location) {
+			// this user can take actions on any incident for one of these locations
+			var locations = this.getUserEligibleLocations(user_id); 
+			if(locations.indexOf(incident.getValue(this.INCIDENT_LOCATION)) >= -1) {
+				gs.info("standardIncidentActionAllow returning true based on location match");
+				return true;
+			}
+		}
+		
+		gs.info("standardIncidentActionAllow returning false (default)");
+		return false;
     },
 
-    // TODO if the user's location is not empty but also is not like STRnnnn,
-    //      but the user's name matches /store[\d]+/, check for locations matching
-    //      the digits in the user's name and compare their sys_ids to the location sys_id.
-    //      This will work around cases where the user's location is something other
-    //      than a store (ex: 'Katy')
-
-    // return true if the incident is for the current user's location. These
-    // caveats apply:
-    //   -- returns false if incident location is empty
-    //   -- returns false if the user's location is empty
-    //   -- location (cmn_location) data is messy (there are duplicate locations)
-    //   -- some store users' locations are blank or are not store locations ('Katy' 
-    //      instead of 'STR0033')
-    // So we may not stop with comparing the user's location with the location
-    // in the incident.
-    isMyStoreIncident: function(incident) {
-
-        var incident_location = incident.getValue('u_location');
-
-        gs.info("incident_location: " + incident_location);
-
-        if (!incident_location) return false;
-
-        // get the user's location
-        var user_sys_id = gs.getUserID();
-        var gr = new GlideRecord('sys_user');
-        gr.get('sys_id', user_sys_id);
-        var user_location = gr.getValue('location');
-
-        gs.info('user location: ' + user_location);
-
-        // If user has no location return false
-        if (!user_location) return false;
-
-        return user_location == incident_location;
+    standardChildActionAllow: function(child, user_id) {
+        var sys_id = child.u_parent;
+        var gr = new GlideRecord("x_42999_store_inc_incident");
+        var flag = gr.get(sys_id);
+        if (!flag) return false; // parent no longer exists
+        return this.standardIncidentActionAllow(gr, user_id);
     },
 
+    // Return true if:
+    // -- the incident state is Draft or Failed, and
+    // -- the user created the incident OR its location is one associated with the user
+    //
+    allowEditIncident: function(incident, user_id) {
+		if (this.INCIDENT_INCOMPLETE_STATES.indexOf(incident.getValue(this.INCIDENT_STATE)) == -1) return false;
+		if( this.isAuthor(incident, user_id) ) return true;
+		var locations = this.getUserEligibleLocations(user_id);
+		if( locations.indexOf(incident.getValue(this.INCIDENT_LOCATION)) > -1 ) return true;
+		return false;
+    },
+
+    allowDeleteIncident: function(incident, user_id) {
+        //TODO
+    },
+
+    allowAddSuspect: function(incident, user_id) {
+        return this.standardIncidentActionAllow(incident, user_id);
+    },
+
+    allowEditSuspect: function(suspect, user_id) {
+        return this.standardChildActionAllow(suspect, user_id);
+    },
+
+    allowDeleteSuspect: function(suspect, user_id) {
+        return this.standardChildActionAllow(suspect, user_id);
+    },
+
+    allowAddVehicle: function(incident, user_id) {
+        return this.standardIncidentActionAllow(incident, user_id);
+    },
+
+    allowEditVehicle: function(vehicle, user_id) {
+        return this.standardChildActionAllow(vehicle, user_id);
+    },
+
+    allowDeleteVehicle: function(vehicle, user_id) {
+        return this.standardChildActionAllow(vehicle, user_id);
+    },
+
+    allowAddPolice: function(incident, user_id) {
+		gs.info("allowAddPolice: " + incident.sys_id + "," + user_id );
+        return this.standardIncidentActionAllow(incident, user_id);
+    },
+
+    allowEditPolice: function(police, user_id) {
+        return this.standardChildActionAllow(police, user_id);
+    },
+
+    allowDeletePolice: function(police, user_id) {
+        return this.standardChildActionAllow(police, user_id);
+    },
+
+    allowAddWitness: function(incident, user_id) {
+        return this.standardIncidentActionAllow(incident, user_id);
+    },
+
+    allowEditWitness: function(witness, user_id) {
+        return this.standardChildActionAllow(witness, user_id);
+    },
+
+    allowDeleteWitness: function(witness, user_id) {
+        return this.standardChildActionAllow(witness, user_id);
+    },
+
+    allowAddSKU: function(incident, user_id) {
+        return this.standardIncidentActionAllow(incident, user_id);
+    },
+
+    allowEditSKU: function(sku, user_id) {
+        return this.standardChildActionAllow(sku, user_id);
+    },
+
+    allowDeleteSKU: function(sku, user_id) {
+        return this.standardChildActionAllow(sku, user_id);
+    },
+
+    allowCopySKU: function(sku, user_id) {
+        return this.standardChildActionAllow(sku, user_id);
+    },
+
+//     getMyLocationSysID: function() {
+//         var user_sys_id = gs.getUserID();
+//         var gr = new GlideRecord('sys_user');
+//         gr.get('sys_id', user_sys_id);
+//         return gr.getValue('location');
+//     },
+ 
     type: 'IncidentUtils'
 };]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-10-13 15:10:02</sys_created_on>
         <sys_id>9d986f8a2f3310109e9157892799b6c7</sys_id>
-        <sys_mod_count>43</sys_mod_count>
+        <sys_mod_count>55</sys_mod_count>
         <sys_name>IncidentUtils</sys_name>
         <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
         <sys_update_name>sys_script_include_9d986f8a2f3310109e9157892799b6c7</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-10-14 18:50:11</sys_updated_on>
+        <sys_updated_on>2020-10-14 23:27:33</sys_updated_on>
     </sys_script_include>
 </record_update>

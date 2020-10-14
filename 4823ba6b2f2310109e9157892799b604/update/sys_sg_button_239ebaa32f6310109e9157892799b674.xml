@@ -8,7 +8,7 @@
         <condition table="x_42999_store_inc_vehicle">u_parent.u_stateINDRAFT,FAILED^EQ<item display_value="DRAFT,FAILED" endquery="false" field="u_parent.u_state" goto="false" newquery="false" operator="IN" or="false" value="DRAFT,FAILED"/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
         </condition>
-        <condition_script>javascript: new IncidentUtils().allowDeleteVehicle(current);</condition_script>
+        <condition_script>javascript: new IncidentUtils().allowDeleteVehicle(current, gs.getUserID());</condition_script>
         <condition_type>script</condition_type>
         <confirm_label/>
         <confirmation_message/>
@@ -45,14 +45,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-10-05 17:40:56</sys_created_on>
         <sys_id>239ebaa32f6310109e9157892799b674</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>Delete Swipe (Vehicle)</sys_name>
         <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
         <sys_policy/>
         <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
         <sys_update_name>sys_sg_button_239ebaa32f6310109e9157892799b674</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-10-14 18:01:40</sys_updated_on>
+        <sys_updated_on>2020-10-14 22:46:52</sys_updated_on>
         <table>x_42999_store_inc_vehicle</table>
         <take_value_from_field>false</take_value_from_field>
         <type>write_back</type>

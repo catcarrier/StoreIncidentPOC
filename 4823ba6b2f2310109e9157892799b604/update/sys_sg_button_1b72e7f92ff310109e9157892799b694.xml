@@ -6,7 +6,7 @@
         <button_table_field_name/>
         <cancel_label/>
         <condition/>
-        <condition_script/>
+        <condition_script>javascript: new IncidentUtils().allowAddPolice(current, gs.getUserID());</condition_script>
         <condition_type>script</condition_type>
         <confirm_label/>
         <confirmation_message/>
@@ -43,14 +43,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-10-12 20:04:26</sys_created_on>
         <sys_id>1b72e7f92ff310109e9157892799b694</sys_id>
-        <sys_mod_count>12</sys_mod_count>
+        <sys_mod_count>22</sys_mod_count>
         <sys_name>add Police Response (g)</sys_name>
         <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
         <sys_policy/>
         <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
         <sys_update_name>sys_sg_button_1b72e7f92ff310109e9157892799b694</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-10-12 22:18:10</sys_updated_on>
+        <sys_updated_on>2020-10-14 23:14:51</sys_updated_on>
         <table/>
         <take_value_from_field>false</take_value_from_field>
         <type>write_back</type>
