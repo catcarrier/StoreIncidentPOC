@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_button_instance">
+    <sys_sg_button_instance action="DELETE">
+        <active>true</active>
+        <button display_value="Submit">72a46eb62fb310109e9157892799b62d</button>
+        <color_theme>primary</color_theme>
+        <description/>
+        <field_name/>
+        <icon/>
+        <label>Submit (Finalize)</label>
+        <location>top</location>
+        <name>Submit (Finalize)</name>
+        <order>50</order>
+        <parent>59ba97a72fa310109e9157892799b64f</parent>
+        <parent_table>sys_sg_screen</parent_table>
+        <sys_class_name>sys_sg_button_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-15 18:30:27</sys_created_on>
+        <sys_id>76d9a2ba2fb310109e9157892799b678</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Submit (Finalize)</sys_name>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_update_name>sys_sg_button_instance_76d9a2ba2fb310109e9157892799b678</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-15 18:30:27</sys_updated_on>
+        <table>x_42999_store_inc_incident</table>
+    </sys_sg_button_instance>
+    <sys_translated_text action="DELETE" query="documentkey=76d9a2ba2fb310109e9157892799b678"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</application>
+        <file_path/>
+        <instance_id>fdda684cdbdc7f4052cec597059619c8</instance_id>
+        <instance_name>dev75036</instance_name>
+        <name>sys_sg_button_instance_76d9a2ba2fb310109e9157892799b678</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_button_instance"><sys_sg_button_instance action="INSERT_OR_UPDATE"><active>true</active><button display_value="Submit">72a46eb62fb310109e9157892799b62d</button><color_theme>primary</color_theme><description/><field_name/><icon/><label>Submit (Finalize)</label><location>top</location><name>Submit (Finalize)</name><order>50</order><parent>59ba97a72fa310109e9157892799b64f</parent><parent_table>sys_sg_screen</parent_table><sys_class_name>sys_sg_button_instance</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-10-15 18:30:27</sys_created_on><sys_id>76d9a2ba2fb310109e9157892799b678</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Submit (Finalize)</sys_name><sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package><sys_policy/><sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope><sys_update_name>sys_sg_button_instance_76d9a2ba2fb310109e9157892799b678</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-10-15 18:30:27</sys_updated_on><table>x_42999_store_inc_incident</table></sys_sg_button_instance><sys_translated_text action="delete_multiple" query="documentkey=76d9a2ba2fb310109e9157892799b678"/></record_update>]]></payload>
+        <payload_hash>-1378913754</payload_hash>
+        <record_name>Submit (Finalize)</record_name>
+        <reverted_from/>
+        <source>2b5d71aa2f3350109e9157892799b6bf</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-15 18:30:27</sys_created_on>
+        <sys_id>fad9a2ba2fb310109e9157892799b67a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1752d87118d0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-15 18:30:27</sys_updated_on>
+        <type>Function instance</type>
+        <update_guid>36d9a2ba84b310109353015c3838e17a</update_guid>
+        <update_guid_history>36d9a2ba84b310109353015c3838e17a:-1378913754</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-15 19:43:55</sys_created_on>
+        <sys_db_object display_value="" name="sys_sg_button_instance">sys_sg_button_instance</sys_db_object>
+        <sys_id>e023928995314b07a33f720361058da9</sys_id>
+        <sys_metadata>76d9a2ba2fb310109e9157892799b678</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Submit (Finalize)</sys_name>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_scope_delete display_value="">e917f26fd2df4032a7626372b05d5e64</sys_scope_delete>
+        <sys_update_name>sys_sg_button_instance_76d9a2ba2fb310109e9157892799b678</sys_update_name>
+        <sys_update_version display_value="sys_sg_button_instance_76d9a2ba2fb310109e9157892799b678">fad9a2ba2fb310109e9157892799b67a</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-15 19:43:55</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

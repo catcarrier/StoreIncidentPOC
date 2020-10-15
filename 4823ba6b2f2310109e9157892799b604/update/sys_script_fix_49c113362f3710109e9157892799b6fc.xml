@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_fix">
+    <sys_script_fix action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <before>false</before>
+        <description/>
+        <flush_cache>false</flush_cache>
+        <name>Populate incidents - alt</name>
+        <record_for_rollback>false</record_for_rollback>
+        <run_once>false</run_once>
+        <script><![CDATA[var INC_SUSPICIOUS_RETURN = 'SUSPICIOUS_RETURN';
+var INC_VEHICLE_BREAKIN = 'VEHICLE_BREAKIN';
+var INC_SHOPLIFTING = 'SHOPLIFTING';
+var INC_ROBBERY = 'ROBBERY';
+var INC_OTHER_CRIMINAL = 'OTHER_CRIMINAL';
+
+var STORE_78 = '82a587e72f6310109e9157892799b624';
+var STOREDIR_78 = '136e8f722f3710109e9157892799b672';
+var STORE_33 = '37854fe72f6310109e9157892799b646';
+var STOREDIR_33 = '919e43b22f3710109e9157892799b624';
+var STORE_307 = '5db54fe72f6310109e9157892799b6ae';
+var STOREDIR_307 = '442ecb722f3710109e9157892799b62d';
+
+var STR0033 = 'e4f5432b2f6310109e9157892799b67d';
+var STR0033_ALT = 'fbbccb322f3710109e9157892799b6f5';
+var STR0078 = '8166472b2f6310109e9157892799b6f0';
+var STR0078_ALT = '74ec07322f3710109e9157892799b6aa';
+var STR0307 = 'f0c68fe72f6310109e9157892799b653';
+var STR0307_ALT = 'fbbccb322f3710109e9157892799b6f5';
+
+var STATE_DRAFT = 'DRAFT';
+var STATE_SUBMITTED = 'SUBMITTED';
+var STATE_FAILED = 'FAILED';
+
+var AUTHORS = [STORE_78, STOREDIR_78, STORE_33, STOREDIR_33, STORE_307, STOREDIR_307];
+var STATES = ['DRAFT', 'SUBMITTED', 'FAILED'];
+
+// Each user is here associated with two locations, the two elements of the array.
+// element 0 is the user's real location, element 1 is another location with the same name.
+// This allows us to test that the user can see and edit inidents for either location.
+// Note that for the store dir, the locations are a mirror image of the locations for the
+// store team member.
+var locations = {
+    STORE_78: ["8166472b2f6310109e9157892799b6f0", "74ec07322f3710109e9157892799b6aa" ],
+    STOREDIR_78: ["74ec07322f3710109e9157892799b6aa", "8166472b2f6310109e9157892799b6f0"],
+    STORE_33: ["e4f5432b2f6310109e9157892799b67d", "fbbccb322f3710109e9157892799b6f5"],
+    STOREDIR_33: ["fbbccb322f3710109e9157892799b6f5", "e4f5432b2f6310109e9157892799b67d" ],
+    STORE_307: ["f0c68fe72f6310109e9157892799b653", "10fc87322f3710109e9157892799b68b"],
+    STOREDIR_307: ["10fc87322f3710109e9157892799b68b", "f0c68fe72f6310109e9157892799b653"]
+};
+
+// vehicle
+var incidents = [{
+        'u_event_subtype': INC_VEHICLE_BREAKIN,
+        'u_author': '',
+        'u_state': '',
+        'u_event_location': '',
+        'u_incident_datetime': '2020-07-02 16:31:00',
+        'u_employee_id_reporting': '111111',
+        'u_description': 'Somebody robbed the Glendale train',
+        'u_victim_name': 'Billy',
+        'u_le_was_notified': 'YES POLICE RESPONDED IN PERSON',
+        'police': [{
+            'u_le_agency': 'ABC Constabulary',
+            'u_le_name': 'Pat',
+            'u_le_time_arrived': '2020-07-02 18:35:00',
+            'u_le_time_called': '2020-07-02 18:02:00',
+            'u_le_badge': 'B11111',
+            'u_le_case_number': 'C00001',
+            'u_le_disposition': 'REPORTED ONLY'
+        }],
+        'vehicle': [{
+            'u_vehicle_make': 'Ford',
+            'u_vehicle_model': 'Prefect',
+            'u_vehicle_plate': 'MMM111',
+            'u_vehicle_year': '2000',
+            'u_is_employee_vehicle': true
+        }],
+        'suspect': [{
+            'u_suspect_status': 'APPREHENDED',
+            'u_suspect_name': 'Billy Bob',
+            'u_suspect_address': '',
+            'u_suspect_dl': '',
+            'u_suspect_dob': '',
+            'u_suspect_race': '',
+            'u_suspect_features': 'lots of tattoos'
+        }],
+        'witness': [{
+            'u_witness_name_phone': 'Susie 555 1212',
+            'u_witness_employee_id': '111112'
+        }]
+    },
+    {
+        'u_event_subtype': INC_SHOPLIFTING,
+        'u_state': '',
+        'u_event_location': '',
+        'u_author': '',
+        'u_incident_datetime': '2020-08-20 11:34:00',
+        'u_employee_id_reporting': '111111',
+        'u_description': 'Stole the ball and cleats',
+        'u_le_was_notified': 'NO',
+        'u_weapon_involved': '',
+        'u_injury_occurred': '',
+        'u_store_closed': '',
+        'u_media_involved': '',
+        'sku': [{
+                'u_description': 'basketball',
+                'u_disposition': 'R',
+                'u_quantity': '5',
+                'u_sku': '343221',
+                'u_total_price': '',
+                'u_unit_price': '11',
+                'u_value_type': 'DEBIT/CREDIT CARD'
+            },
+            {
+                'u_description': 'cleats',
+                'u_disposition': 'N',
+                'u_quantity': '1',
+                'u_sku': '453332',
+                'u_total_price': '',
+                'u_unit_price': '48',
+                'u_value_type': 'MERCHANDISE'
+            }
+        ],
+        'police': [{
+            'u_le_agency': '',
+            'u_le_time_arrived': '2020-09-21 11:00:00',
+            'u_le_time_called': '2020-09-21 10:50:00',
+            'u_le_name': 'Billy',
+            'u_le_badge': 'B00001',
+            'u_le_case_number': '12345',
+            'u_le_disposition': 'REPORTED ONLY'
+        }],
+        'suspect': [{
+            'u_suspect_status': 'NOT APPREHENDED',
+            'u_suspect_name': 'n/a',
+            'u_suspect_address': '',
+            'u_suspect_dl': '',
+            'u_suspect_dob': '',
+            'u_suspect_race': '',
+            'u_suspect_features': ''
+        }],
+        'witness': [{
+            'u_witness_name_phone': 'Susan',
+            'u_witness_employee_id': '111111'
+        }]
+    },
+    {
+        'u_event_subtype': INC_ROBBERY,
+        'u_state': '',
+        'u_event_location': '',
+        'u_author': '',
+        'u_incident_datetime': '2019-11-02 10:30:00',
+        'u_employee_id_reporting': '111111',
+        'u_description': 'one armed bandit',
+        'u_weapon_involved': '',
+        'u_injury_occurred': '',
+        'u_store_closed': '',
+        'u_store_damaged': '',
+        'u_media_involved': '',
+        'u_suspect_enter': 'FRONT DOOR',
+        'u_targeted_assets': 'CASH',
+        'u_employee_affected_info': '',
+        'u_customers_affected_info': 'Joe Smith 555-1212',
+        'suspect': [{
+            'u_suspect_status': 'APPREHENDED',
+            'u_suspect_name': 'Bradley B',
+            'u_suspect_address': 'Main Street',
+            'u_suspect_dl': 'D01111',
+            'u_suspect_dob': '1998-01-01',
+            'u_suspect_race': 'NATIVE HAWAIIAN/PACIFIC ISLANDER',
+            'u_suspect_features': 'seven feet tall',
+        }],
+        'witness': [{
+                'u_witness_name_phone': 'Bob 555 1212',
+                'u_witness_employee_id': '',
+            },
+            {
+                'u_witness_name_phone': 'Darryl 454 3333',
+                'u_witness_employee_id': '',
+            }
+        ],
+    },
+    {
+        'u_event_subtype': INC_OTHER_CRIMINAL,
+        'u_state': '',
+        'u_event_location': '',
+        'u_author': '',
+        'u_incident_datetime': '2020-08-17 08:30:00',
+        'u_employee_id_reporting': '111111',
+        'u_description': 'one armed banditti',
+        'u_le_was_notified': 'YES, POLICE RESPONDED IN PERSON',
+        'u_weapon_involved': 'false',
+        'u_injury_occurred': 'false',
+        'u_store_closed': 'false',
+        'u_store_damaged': 'false',
+        'u_media_involved': 'true',
+        'u_suspect_enter': 'FRONT DOOR',
+        'suspect': [{
+            'u_suspect_status': 'APPREHENDED',
+            'u_suspect_name': 'Bradley B',
+            'u_suspect_address': 'Main Street',
+            'u_suspect_dl': 'D01111',
+            'u_suspect_dob': '1998-01-01',
+            'u_suspect_race': 'NATIVE HAWAIIAN/PACIFIC ISLANDER',
+            'u_suspect_features': 'seven feet tall'
+        }],
+        'police': [{
+            'u_le_agency': 'XYZ Agency',
+            'u_le_time_arrived': '2020-08-17 08:45:00',
+            'u_le_time_called': '2020-08-17 08:35:00',
+            'u_le_name': 'Constabulary',
+            'u_le_badge': 'B00001',
+            'u_le_case_number': 'C00001',
+            'u_le_disposition': 'ISSUED CITATION AND RELEASED'
+        }],
+        'witness': [{
+            'u_witness_name_phone': 'Bob Smith 555 1212',
+            'u_witness_employee_id': '121212'
+        }]
+    }
+];
+
+// Iterate each INCIDENT
+for (var inc_index = 0; inc_index < incidents.length; inc_index++) {
+
+    // iterate each STATE
+    for (var state_index = 0; state_index < STATES.length; state_index++) {
+
+        // iterate each AUTHOR
+        for (var author_index = 0; author_index < AUTHORS.length; author_index++) {
+
+			// Get the author's record -- we need the name later
+			var gr_user = new GlideRecord('sys_user');
+			gr_user.get('sys_id', AUTHORS[author_index]);
+			
+			gs.info('author_index: ' + author_index);
+			gs.info( 'AUTHORS[author_index]: ' + AUTHORS[author_index] );
+			
+			gs.info("author: " + gr_user.getValue('user_name'));
+			
+			gs.info( "locations key length: " + Object.keys(locations).length);
+			
+            // iterate each LOCATION for this author
+			// Each author has two locations in the object above. One is his real location,
+			// the other is not, but has the same name. This mimics the location duplication in prod.
+			// The app should consider both to be 'eligible locations' for this user.
+			var key = AUTHORS[author_index];
+			//gs.info("key: " + key);
+			gs.info("element 0: " + locations[0]);
+            var locs = locations[ key ];
+			
+			gs.info(locs);
+			
+            for (var loc_index = 0; loc_index < locs.length; loc_index++) {
+
+                var row = incidents[inc_index];
+
+                var gr = new GlideRecord("x_42999_store_inc_incident");
+                gr.initialize();
+
+                // populate all the fields from the boilerplate incident data...
+                for (var p in row) {
+                    if (row.hasOwnProperty(p)) {
+                        gr.setValue(p, row[p]);
+                    }
+                } // p (property)
+
+                // ...but override these properties with the current value of author, state
+                //    and update the description
+                gr.setValue('u_author', AUTHORS[author_index]);
+                gr.setValue('u_state', STATES[state_index]);
+				gr.setValue('u_location', locs[loc_index]);
+				
+                //var desc = gr.getValue('u_description');
+                var desc = "State:" + STATES[state_index];
+				desc += '/loc: ' + locs[loc_index].slice(-4);
+				desc += '/Author: ' + gr_user.getValue('user_name') + ".";
+                gr.setValue('u_description', desc);
+
+                gr.update();
+
+                if (row.suspect) {
+                    for (var suspect_index = 0; suspect_index < row.suspect.length; suspect_index++) {
+                        var suspect_row = row.suspect[suspect_index];
+                        var gr_suspect = new GlideRecord("x_42999_store_inc_suspect");
+                        gr_suspect.initialize();
+                        for (var suspect_prop in suspect_row) {
+                            if (suspect_row.hasOwnProperty(suspect_prop)) {
+                                gr_suspect.setValue(suspect_prop, suspect_row[suspect_prop]);
+                            }
+                        }
+                        gr_suspect.setValue('u_parent', gr.sys_id);
+                        gr_suspect.update();
+                    }
+                }
+
+                if (row.witness) {
+                    for (var witness_index = 0; witness_index < row.witness.length; witness_index++) {
+                        var witness_row = row.witness[witness_index];
+                        var gr_witness = new GlideRecord("x_42999_store_inc_witness");
+                        gr_witness.initialize();
+                        for (var witness_prop in witness_row) {
+                            if (witness_row.hasOwnProperty(witness_prop)) {
+                                gr_witness.setValue(witness_prop, witness_row[witness_prop]);
+                            }
+                        }
+                        gr_witness.setValue('u_parent', gr.sys_id);
+                        gr_witness.update();
+                    }
+                }
+
+                if (row.police) {
+                    for (var police_index = 0; police_index < row.police.length; police_index++) {
+                        var police_row = row.police[police_index];
+                        var gr_police = new GlideRecord("x_42999_store_inc_police_response");
+                        gr_police.initialize();
+                        for (var police_prop in police_row) {
+                            if (police_row.hasOwnProperty(police_prop)) {
+                                gr_police.setValue(police_prop, police_row[police_prop]);
+                            }
+                        }
+                        gr_police.setValue('u_parent', gr.sys_id);
+                        gr_police.update();
+                    }
+                }
+
+                if (row.sku) {
+                    for (var sku_index = 0; sku_index < row.sku.length; sku_index++) {
+                        var sku_row = row.sku[sku_index];
+                        var gr_sku = new GlideRecord("x_42999_store_inc_sku");
+                        gr_sku.initialize();
+                        for (var prop in sku_row) {
+                            if (sku_row.hasOwnProperty(prop)) {
+                                gr_sku.setValue(prop, sku_row[prop]);
+                            }
+                        }
+                        gr_sku.setValue('u_parent', gr.sys_id);
+                        gr_sku.update();
+                    }
+                }
+            }
+        } // author
+    } // state
+
+} // inc]]></script>
+        <sys_class_name>sys_script_fix</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-15 21:58:13</sys_created_on>
+        <sys_id>49c113362f3710109e9157892799b6fc</sys_id>
+        <sys_mod_count>16</sys_mod_count>
+        <sys_name>Populate incidents - alt</sys_name>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_update_name>sys_script_fix_49c113362f3710109e9157892799b6fc</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-15 23:40:20</sys_updated_on>
+        <unloadable>false</unloadable>
+    </sys_script_fix>
+</record_update>

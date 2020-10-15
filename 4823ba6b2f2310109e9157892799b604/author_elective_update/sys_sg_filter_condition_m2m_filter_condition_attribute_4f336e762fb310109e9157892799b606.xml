@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_filter_condition_m2m_filter_condition_attribute">
+    <sys_sg_filter_condition_m2m_filter_condition_attribute action="DELETE">
+        <filter_condition display_value="Police Responses Keyword filter condition">4733aa762fb310109e9157892799b6ac</filter_condition>
+        <filter_condition_attribute/>
+        <sys_class_name>sys_sg_filter_condition_m2m_filter_condition_attribute</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-15 18:01:32</sys_created_on>
+        <sys_id>4f336e762fb310109e9157892799b606</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_update_name>sys_sg_filter_condition_m2m_filter_condition_attribute_4f336e762fb310109e9157892799b606</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-15 18:01:32</sys_updated_on>
+    </sys_sg_filter_condition_m2m_filter_condition_attribute>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</application>
+        <file_path/>
+        <instance_id>fdda684cdbdc7f4052cec597059619c8</instance_id>
+        <instance_name>dev75036</instance_name>
+        <name>sys_sg_filter_condition_m2m_filter_condition_attribute_4f336e762fb310109e9157892799b606</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_filter_condition_m2m_filter_condition_attribute"><sys_sg_filter_condition_m2m_filter_condition_attribute action="INSERT_OR_UPDATE"><filter_condition display_value="Police Responses Keyword filter condition">4733aa762fb310109e9157892799b6ac</filter_condition><filter_condition_attribute/><sys_class_name>sys_sg_filter_condition_m2m_filter_condition_attribute</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-10-15 18:01:32</sys_created_on><sys_id>4f336e762fb310109e9157892799b606</sys_id><sys_mod_count>0</sys_mod_count><sys_name/><sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package><sys_policy/><sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope><sys_update_name>sys_sg_filter_condition_m2m_filter_condition_attribute_4f336e762fb310109e9157892799b606</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-10-15 18:01:32</sys_updated_on></sys_sg_filter_condition_m2m_filter_condition_attribute></record_update>]]></payload>
+        <payload_hash>774964996</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>2b5d71aa2f3350109e9157892799b6bf</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-15 18:01:38</sys_created_on>
+        <sys_id>2c436e762fb310109e9157892799b691</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1752d6cae5c0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-15 18:01:38</sys_updated_on>
+        <type>Filter Condition M2M Filter Condition At</type>
+        <update_guid>cf336e7673b3101002b8ed7243c6fe07</update_guid>
+        <update_guid_history>cf336e7673b3101002b8ed7243c6fe07:708270808,cf336e7673b3101002b8ed7243c6fe07:708270808</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-15 18:01:38</sys_created_on>
+        <sys_db_object display_value="" name="sys_sg_filter_condition_m2m_filter_condition_attribute">sys_sg_filter_condition_m2m_filter_condition_attribute</sys_db_object>
+        <sys_id>026d796ab8024be6a0ae990cc2f832a4</sys_id>
+        <sys_metadata>4f336e762fb310109e9157892799b606</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_scope_delete display_value="">e917f26fd2df4032a7626372b05d5e64</sys_scope_delete>
+        <sys_update_name>sys_sg_filter_condition_m2m_filter_condition_attribute_4f336e762fb310109e9157892799b606</sys_update_name>
+        <sys_update_version display_value="sys_sg_filter_condition_m2m_filter_condition_attribute_4f336e762fb310109e9157892799b606">2c436e762fb310109e9157892799b691</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-15 18:01:38</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

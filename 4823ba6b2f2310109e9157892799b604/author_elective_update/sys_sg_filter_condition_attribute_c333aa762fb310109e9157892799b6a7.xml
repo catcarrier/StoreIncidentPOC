@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_filter_condition_attribute">
+    <sys_sg_filter_condition_attribute action="DELETE">
+        <description/>
+        <name display_value="Display Type">c9ef07da73320010ed095a7b1bf6a7a2</name>
+        <sys_class_name>sys_sg_filter_condition_attribute</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-15 18:01:32</sys_created_on>
+        <sys_id>c333aa762fb310109e9157892799b6a7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>c9ef07da73320010ed095a7b1bf6a7a2</sys_name>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_update_name>sys_sg_filter_condition_attribute_c333aa762fb310109e9157892799b6a7</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-15 18:01:32</sys_updated_on>
+        <value>Text</value>
+    </sys_sg_filter_condition_attribute>
+    <sys_translated_text action="DELETE" query="documentkey=c333aa762fb310109e9157892799b6a7"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</application>
+        <file_path/>
+        <instance_id>fdda684cdbdc7f4052cec597059619c8</instance_id>
+        <instance_name>dev75036</instance_name>
+        <name>sys_sg_filter_condition_attribute_c333aa762fb310109e9157892799b6a7</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_filter_condition_attribute"><sys_sg_filter_condition_attribute action="INSERT_OR_UPDATE"><description/><name display_value="Display Type">c9ef07da73320010ed095a7b1bf6a7a2</name><sys_class_name>sys_sg_filter_condition_attribute</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-10-15 18:01:32</sys_created_on><sys_id>c333aa762fb310109e9157892799b6a7</sys_id><sys_mod_count>0</sys_mod_count><sys_name>c9ef07da73320010ed095a7b1bf6a7a2</sys_name><sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package><sys_policy/><sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope><sys_update_name>sys_sg_filter_condition_attribute_c333aa762fb310109e9157892799b6a7</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-10-15 18:01:32</sys_updated_on><value>Text</value></sys_sg_filter_condition_attribute><sys_translated_text action="delete_multiple" query="documentkey=c333aa762fb310109e9157892799b6a7"/></record_update>]]></payload>
+        <payload_hash>-1953017839</payload_hash>
+        <record_name>c9ef07da73320010ed095a7b1bf6a7a2</record_name>
+        <reverted_from/>
+        <source>2b5d71aa2f3350109e9157892799b6bf</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-15 18:01:32</sys_created_on>
+        <sys_id>cf33aa762fb310109e9157892799b6a9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1752d6c969f0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-15 18:01:32</sys_updated_on>
+        <type>Filter Condition Attribute</type>
+        <update_guid>0b33aa764eb3101084394b306ae202a9</update_guid>
+        <update_guid_history>0b33aa764eb3101084394b306ae202a9:-1953017839</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-15 18:01:38</sys_created_on>
+        <sys_db_object display_value="" name="sys_sg_filter_condition_attribute">sys_sg_filter_condition_attribute</sys_db_object>
+        <sys_id>14922901da4a420782e40f517e1a5819</sys_id>
+        <sys_metadata>c333aa762fb310109e9157892799b6a7</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>c9ef07da73320010ed095a7b1bf6a7a2</sys_name>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_scope_delete display_value="">e917f26fd2df4032a7626372b05d5e64</sys_scope_delete>
+        <sys_update_name>sys_sg_filter_condition_attribute_c333aa762fb310109e9157892799b6a7</sys_update_name>
+        <sys_update_version display_value="sys_sg_filter_condition_attribute_c333aa762fb310109e9157892799b6a7">cf33aa762fb310109e9157892799b6a9</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-15 18:01:38</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -12,52 +12,29 @@
     var gr_incident = new GlideRecord("x_42999_store_inc_incident");
 
     if (gr_vehicle.canDelete() && gr_suspect.canDelete() && gr_police.canDelete() && gr_sku.canDelete() && gr_witness.canDelete() && gr_incident.canDelete()) {
-        
-		//gs.info("deleting vehicle rows...");
-		
 		gr_vehicle.addQuery("u_parent", input.sys_id);
 		gr_vehicle.query();
         gr_vehicle.deleteMultiple();
-
-		//gs.info("deleting suspect rows...");
 		
         gr_suspect.addQuery("u_parent", input.sys_id);
 		gr_suspect.query();
         gr_suspect.deleteMultiple();
-
-		//gs.info("deleting police rows...");
 		
         gr_police.addQuery("u_parent", input.sys_id);
 		gr_police.query();
         gr_police.deleteMultiple();
-
-		//gs.info("deleting sku rows...");
 		
         gr_sku.addQuery("u_parent", input.sys_id);
 		gr_sku.query();
         gr_sku.deleteMultiple();
-
-		//gs.info("deleting witness rows...");
 		
         gr_witness.addQuery("u_parent", input.sys_id);
 		gr_witness.query();
         gr_witness.deleteMultiple();
 
-		//gs.info("deleting incident...");
-		
-        gr_incident.addQuery("sys_id", input.sys_id);
-        gr_incident.query();
-		if(gr_incident.next()) {
-			var was_deleted = gr_incident.deleteRecord();
-			if( was_deleted ) {
-				gs.info("deleting incident... done");
-			} else {  
-				gs.info("deleting incident... could not delete incident!");
-			}
-		} else {
-			gs.warn("Could not locate incident");
+		if(gr_incident.get("sys_id", input.sys_id)) {
+			gr_incident.deleteRecord();
 		}
-        
     } else {
 		gs.addErrorMessage("You are not allowed to delete from one or more of these tables.");
 	}
@@ -69,14 +46,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-10-12 15:12:04</sys_created_on>
         <sys_id>116fd2712f7310109e9157892799b67e</sys_id>
-        <sys_mod_count>10</sys_mod_count>
+        <sys_mod_count>11</sys_mod_count>
         <sys_name>Delete Swipe Incident</sys_name>
         <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
         <sys_policy/>
         <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
         <sys_update_name>sys_sg_write_back_action_item_116fd2712f7310109e9157892799b67e</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-10-12 17:04:15</sys_updated_on>
+        <sys_updated_on>2020-10-15 19:57:32</sys_updated_on>
         <table/>
         <template/>
         <type>script</type>
