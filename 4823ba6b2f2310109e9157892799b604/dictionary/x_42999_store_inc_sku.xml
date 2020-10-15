@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element label="SKU" max_length="40" name="x_42999_store_inc_sku" sizeclass="19" type="collection">
+    <element label="SKU" max_length="40" name="x_42999_store_inc_sku" sizeclass="22" type="collection">
         <element attributes="edge_encryption_enabled=true" label="Description" max_length="100" name="u_description" type="string"/>
         <element attributes="edge_encryption_enabled=true" choice="3" default="R" label="Disposition" max_length="40" name="u_disposition" type="choice">
             <choice>

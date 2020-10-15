@@ -6,7 +6,7 @@
         <button_table_field_name/>
         <cancel_label/>
         <condition/>
-        <condition_script>javascript: new IncidentUtils().allowEditSKU(current);</condition_script>
+        <condition_script>javascript: new IncidentUtils().allowEditSKU(current, gs.getUserID());</condition_script>
         <condition_type>script</condition_type>
         <confirm_label/>
         <confirmation_message/>
@@ -43,14 +43,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-10-05 17:40:55</sys_created_on>
         <sys_id>e39ebaa32f6310109e9157892799b647</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>Edit (SKU)</sys_name>
         <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
         <sys_policy/>
         <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
         <sys_update_name>sys_sg_button_e39ebaa32f6310109e9157892799b647</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-10-14 18:50:58</sys_updated_on>
+        <sys_updated_on>2020-10-15 15:41:21</sys_updated_on>
         <table>x_42999_store_inc_sku</table>
         <take_value_from_field>false</take_value_from_field>
         <type>write_back</type>

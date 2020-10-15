@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element label="Police Response" max_length="40" name="x_42999_store_inc_police_response" sizeclass="17" type="collection">
+    <element label="Police Response" max_length="40" name="x_42999_store_inc_police_response" sizeclass="18" type="collection">
         <element attributes="edge_encryption_enabled=true" label="Law Enforcement Agency" max_length="40" name="u_le_agency" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Badge Number" max_length="40" name="u_le_badge" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Case Number" max_length="40" name="u_le_case_number" type="string"/>

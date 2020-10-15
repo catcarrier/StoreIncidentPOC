@@ -76,29 +76,27 @@ IncidentUtils.prototype = {
 	//
     standardIncidentActionAllow: function(incident, user_id) {
         if (this.INCIDENT_INCOMPLETE_STATES.indexOf(incident.getValue(this.INCIDENT_STATE)) == -1){
-			gs.info("standardIncidentActionAllow returning false b/c state no in " + this.INCIDENT_INCOMPLETE_STATES.join(", "));
 			return false;
 		}
 		
 		if(this.isAuthor( incident, user_id )) {
-			gs.info("standardIncidentActionAllow returning true b/c " + user_id + " is author");
 			return true;
 		}
 		
 		var location = this.getUserLocation(user_id);
 		if(location) {
-			// this user can take actions on any incident for one of these locations
-			var locations = this.getUserEligibleLocations(user_id); 
-			if(locations.indexOf(incident.getValue(this.INCIDENT_LOCATION)) >= -1) {
-				gs.info("standardIncidentActionAllow returning true based on location match");
+			// this user can take actions on any open incident for one of these locations
+			var locations = this.getUserEligibleLocations(user_id);
+			if(locations.indexOf(incident.getValue(this.INCIDENT_LOCATION)) > -1) {
 				return true;
 			}
 		}
 		
-		gs.info("standardIncidentActionAllow returning false (default)");
 		return false;
     },
 
+	// The user can take any action on a child record they would be allowed
+	// to take on its parent record.
     standardChildActionAllow: function(child, user_id) {
         var sys_id = child.u_parent;
         var gr = new GlideRecord("x_42999_store_inc_incident");
@@ -119,8 +117,10 @@ IncidentUtils.prototype = {
 		return false;
     },
 
+	// Return true if the user is the author and the incident is not submitted
     allowDeleteIncident: function(incident, user_id) {
-        //TODO
+        return this.isAuthor(incident, user_id) 
+			&& this.INCIDENT_INCOMPLETE_STATES.indexOf(incident.getValue(this.INCIDENT_STATE)) > -1;
     },
 
     allowAddSuspect: function(incident, user_id) {
@@ -148,8 +148,7 @@ IncidentUtils.prototype = {
     },
 
     allowAddPolice: function(incident, user_id) {
-		gs.info("allowAddPolice: " + incident.sys_id + "," + user_id );
-        return this.standardIncidentActionAllow(incident, user_id);
+		return this.standardIncidentActionAllow(incident, user_id);
     },
 
     allowEditPolice: function(police, user_id) {
@@ -201,13 +200,13 @@ IncidentUtils.prototype = {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-10-13 15:10:02</sys_created_on>
         <sys_id>9d986f8a2f3310109e9157892799b6c7</sys_id>
-        <sys_mod_count>55</sys_mod_count>
+        <sys_mod_count>63</sys_mod_count>
         <sys_name>IncidentUtils</sys_name>
         <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
         <sys_update_name>sys_script_include_9d986f8a2f3310109e9157892799b6c7</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-10-14 23:27:33</sys_updated_on>
+        <sys_updated_on>2020-10-15 15:30:47</sys_updated_on>
     </sys_script_include>
 </record_update>
