@@ -32,21 +32,44 @@ var STATE_SUBMITTED = 'SUBMITTED';
 var STATE_FAILED = 'FAILED';
 
 var AUTHORS = [STORE_78, STOREDIR_78, STORE_33, STOREDIR_33, STORE_307, STOREDIR_307];
-var STATES = ['DRAFT', 'SUBMITTED', 'FAILED'];
+var STATES = [STATE_DRAFT, STATE_SUBMITTED, STATE_FAILED];
 
-// Each user is here associated with two locations, the two elements of the array.
-// element 0 is the user's real location, element 1 is another location with the same name.
-// This allows us to test that the user can see and edit inidents for either location.
+// Each user is here associated with two locations, one the user's real location, 
+// the other another location with the same name.
+// This allows us to test that the user can see and edit incidents for either location.
 // Note that for the store dir, the locations are a mirror image of the locations for the
 // store team member.
-var locations = {
-    STORE_78: ["8166472b2f6310109e9157892799b6f0", "74ec07322f3710109e9157892799b6aa" ],
-    STOREDIR_78: ["74ec07322f3710109e9157892799b6aa", "8166472b2f6310109e9157892799b6f0"],
-    STORE_33: ["e4f5432b2f6310109e9157892799b67d", "fbbccb322f3710109e9157892799b6f5"],
-    STOREDIR_33: ["fbbccb322f3710109e9157892799b6f5", "e4f5432b2f6310109e9157892799b67d" ],
-    STORE_307: ["f0c68fe72f6310109e9157892799b653", "10fc87322f3710109e9157892799b68b"],
-    STOREDIR_307: ["10fc87322f3710109e9157892799b68b", "f0c68fe72f6310109e9157892799b653"]
-};
+var users = [{
+        sys_id: STORE_78,
+        primary_location: "8166472b2f6310109e9157892799b6f0",
+        secondary_location: "74ec07322f3710109e9157892799b6aa"
+    },
+    {
+        sys_id: STOREDIR_78,
+        primary_location: "74ec07322f3710109e9157892799b6aa",
+        secondary_location: "8166472b2f6310109e9157892799b6f0"
+    },
+    {
+        sys_id: STORE_33,
+        primary_location: "e4f5432b2f6310109e9157892799b67d",
+        secondary_location: "fbbccb322f3710109e9157892799b6f5"
+    },
+    {
+        sys_id: STOREDIR_33,
+        primary_location: "fbbccb322f3710109e9157892799b6f5",
+        secondary_location: "e4f5432b2f6310109e9157892799b67d"
+    },
+    {
+        sys_id: STORE_307,
+        primary_location: "f0c68fe72f6310109e9157892799b653",
+        secondary_location: "10fc87322f3710109e9157892799b68b"
+    },
+    {
+        sys_id: STOREDIR_307,
+        primary_location: "10fc87322f3710109e9157892799b68b",
+        secondary_location: "f0c68fe72f6310109e9157892799b653"
+    }
+];
 
 // vehicle
 var incidents = [{
@@ -220,141 +243,137 @@ var incidents = [{
     }
 ];
 
+var insertIncident = function(incidentData, user_id, location, isPrimaryLocation, state) {
+
+    // Get the user's record -- we need the name later
+    var gr_user = new GlideRecord('sys_user');
+    gr_user.get('sys_id', user_id);
+	
+	var msg = gr_user.getValue('user_name') + "/" + location + "/" + isPrimaryLocation + "/" + state;
+	
+	gs.info(msg);
+	
+    var gr = new GlideRecord("x_42999_store_inc_incident");
+    gr.initialize();
+	
+    // populate all the fields from the boilerplate incident data...
+    for (var p in incidentData) {
+        if (incidentData.hasOwnProperty(p)) {
+            gr.setValue(p, incidentData[p]);
+        }
+    }
+
+    // ...but override these properties with the values of location, state
+    //    and update the description
+    gr.setValue('u_author', user_id);
+    gr.setValue('u_state', state);
+    gr.setValue('u_event_location', location);
+
+    //var desc = gr.getValue('u_description');
+    var desc = "State: " + state;
+    desc += '/location: ' + (isPrimaryLocation ? "primary":"alternate");
+    desc += '/Author: ' + gr_user.getValue('user_name') + ".";
+    gr.setValue('u_description', desc);
+
+    gr.update();
+
+    if (incidentData.suspect) {
+        for (var suspect_index = 0; suspect_index < incidentData.suspect.length; suspect_index++) {
+            var suspect_row = incidentData.suspect[suspect_index];
+            var gr_suspect = new GlideRecord("x_42999_store_inc_suspect");
+            gr_suspect.initialize();
+            for (var suspect_prop in suspect_row) {
+                if (suspect_row.hasOwnProperty(suspect_prop)) {
+                    gr_suspect.setValue(suspect_prop, suspect_row[suspect_prop]);
+                }
+            }
+            gr_suspect.setValue('u_parent', gr.sys_id);
+            gr_suspect.update();
+        }
+    }
+
+    if (incidentData.witness) {
+        for (var witness_index = 0; witness_index < incidentData.witness.length; witness_index++) {
+            var witness_row = incidentData.witness[witness_index];
+            var gr_witness = new GlideRecord("x_42999_store_inc_witness");
+            gr_witness.initialize();
+            for (var witness_prop in witness_row) {
+                if (witness_row.hasOwnProperty(witness_prop)) {
+                    gr_witness.setValue(witness_prop, witness_row[witness_prop]);
+                }
+            }
+            gr_witness.setValue('u_parent', gr.sys_id);
+            gr_witness.update();
+        }
+    }
+
+    if (incidentData.police) {
+        for (var police_index = 0; police_index < incidentData.police.length; police_index++) {
+            var police_row = incidentData.police[police_index];
+            var gr_police = new GlideRecord("x_42999_store_inc_police_response");
+            gr_police.initialize();
+            for (var police_prop in police_row) {
+                if (police_row.hasOwnProperty(police_prop)) {
+                    gr_police.setValue(police_prop, police_row[police_prop]);
+                }
+            }
+            gr_police.setValue('u_parent', gr.sys_id);
+            gr_police.update();
+        }
+    }
+
+    if (incidentData.sku) {
+        for (var sku_index = 0; sku_index < incidentData.sku.length; sku_index++) {
+            var sku_row = incidentData.sku[sku_index];
+            var gr_sku = new GlideRecord("x_42999_store_inc_sku");
+            gr_sku.initialize();
+            for (var prop in sku_row) {
+                if (sku_row.hasOwnProperty(prop)) {
+                    gr_sku.setValue(prop, sku_row[prop]);
+                }
+            }
+            gr_sku.setValue('u_parent', gr.sys_id);
+            gr_sku.update();
+        }
+    }
+
+};
+
 // Iterate each INCIDENT
 for (var inc_index = 0; inc_index < incidents.length; inc_index++) {
+
+    var incidentData = incidents[inc_index];
 
     // iterate each STATE
     for (var state_index = 0; state_index < STATES.length; state_index++) {
 
-        // iterate each AUTHOR
-        for (var author_index = 0; author_index < AUTHORS.length; author_index++) {
+        var state = STATES[state_index];
 
-			// Get the author's record -- we need the name later
-			var gr_user = new GlideRecord('sys_user');
-			gr_user.get('sys_id', AUTHORS[author_index]);
-			
-			gs.info('author_index: ' + author_index);
-			gs.info( 'AUTHORS[author_index]: ' + AUTHORS[author_index] );
-			
-			gs.info("author: " + gr_user.getValue('user_name'));
-			
-			gs.info( "locations key length: " + Object.keys(locations).length);
-			
-            // iterate each LOCATION for this author
-			// Each author has two locations in the object above. One is his real location,
-			// the other is not, but has the same name. This mimics the location duplication in prod.
-			// The app should consider both to be 'eligible locations' for this user.
-			var key = AUTHORS[author_index];
-			//gs.info("key: " + key);
-			gs.info("element 0: " + locations[0]);
-            var locs = locations[ key ];
-			
-			gs.info(locs);
-			
-            for (var loc_index = 0; loc_index < locs.length; loc_index++) {
+        // for each state, iterate each user
+        for (var user_index = 0; user_index < users.length; user_index++) {
 
-                var row = incidents[inc_index];
+            var user = users[user_index];
 
-                var gr = new GlideRecord("x_42999_store_inc_incident");
-                gr.initialize();
+            insertIncident(incidentData, user.sys_id, user.primary_location, true, state);
 
-                // populate all the fields from the boilerplate incident data...
-                for (var p in row) {
-                    if (row.hasOwnProperty(p)) {
-                        gr.setValue(p, row[p]);
-                    }
-                } // p (property)
-
-                // ...but override these properties with the current value of author, state
-                //    and update the description
-                gr.setValue('u_author', AUTHORS[author_index]);
-                gr.setValue('u_state', STATES[state_index]);
-				gr.setValue('u_location', locs[loc_index]);
-				
-                //var desc = gr.getValue('u_description');
-                var desc = "State:" + STATES[state_index];
-				desc += '/loc: ' + locs[loc_index].slice(-4);
-				desc += '/Author: ' + gr_user.getValue('user_name') + ".";
-                gr.setValue('u_description', desc);
-
-                gr.update();
-
-                if (row.suspect) {
-                    for (var suspect_index = 0; suspect_index < row.suspect.length; suspect_index++) {
-                        var suspect_row = row.suspect[suspect_index];
-                        var gr_suspect = new GlideRecord("x_42999_store_inc_suspect");
-                        gr_suspect.initialize();
-                        for (var suspect_prop in suspect_row) {
-                            if (suspect_row.hasOwnProperty(suspect_prop)) {
-                                gr_suspect.setValue(suspect_prop, suspect_row[suspect_prop]);
-                            }
-                        }
-                        gr_suspect.setValue('u_parent', gr.sys_id);
-                        gr_suspect.update();
-                    }
-                }
-
-                if (row.witness) {
-                    for (var witness_index = 0; witness_index < row.witness.length; witness_index++) {
-                        var witness_row = row.witness[witness_index];
-                        var gr_witness = new GlideRecord("x_42999_store_inc_witness");
-                        gr_witness.initialize();
-                        for (var witness_prop in witness_row) {
-                            if (witness_row.hasOwnProperty(witness_prop)) {
-                                gr_witness.setValue(witness_prop, witness_row[witness_prop]);
-                            }
-                        }
-                        gr_witness.setValue('u_parent', gr.sys_id);
-                        gr_witness.update();
-                    }
-                }
-
-                if (row.police) {
-                    for (var police_index = 0; police_index < row.police.length; police_index++) {
-                        var police_row = row.police[police_index];
-                        var gr_police = new GlideRecord("x_42999_store_inc_police_response");
-                        gr_police.initialize();
-                        for (var police_prop in police_row) {
-                            if (police_row.hasOwnProperty(police_prop)) {
-                                gr_police.setValue(police_prop, police_row[police_prop]);
-                            }
-                        }
-                        gr_police.setValue('u_parent', gr.sys_id);
-                        gr_police.update();
-                    }
-                }
-
-                if (row.sku) {
-                    for (var sku_index = 0; sku_index < row.sku.length; sku_index++) {
-                        var sku_row = row.sku[sku_index];
-                        var gr_sku = new GlideRecord("x_42999_store_inc_sku");
-                        gr_sku.initialize();
-                        for (var prop in sku_row) {
-                            if (sku_row.hasOwnProperty(prop)) {
-                                gr_sku.setValue(prop, sku_row[prop]);
-                            }
-                        }
-                        gr_sku.setValue('u_parent', gr.sys_id);
-                        gr_sku.update();
-                    }
-                }
-            }
+            insertIncident(incidentData, user.sys_id, user.secondary_location, false, state);
         } // author
     } // state
+} // inc
 
-} // inc]]></script>
+]]></script>
         <sys_class_name>sys_script_fix</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-10-15 21:58:13</sys_created_on>
         <sys_id>49c113362f3710109e9157892799b6fc</sys_id>
-        <sys_mod_count>16</sys_mod_count>
+        <sys_mod_count>22</sys_mod_count>
         <sys_name>Populate incidents - alt</sys_name>
         <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
         <sys_policy/>
         <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
         <sys_update_name>sys_script_fix_49c113362f3710109e9157892799b6fc</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-10-15 23:40:20</sys_updated_on>
+        <sys_updated_on>2020-10-16 15:15:39</sys_updated_on>
         <unloadable>false</unloadable>
     </sys_script_fix>
 </record_update>

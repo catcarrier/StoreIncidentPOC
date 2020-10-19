@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element label="Store Incident" max_length="40" name="x_42999_store_inc_incident" sizeclass="29" type="collection">
+    <element label="Store Incident" max_length="40" name="x_42999_store_inc_incident" sizeclass="144" type="collection">
         <element attributes="encode_utf8=false" calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;// Add your code here&#13;&#10;&#9;return '';  // return the calculated value&#13;&#10;&#13;&#10;})(current);" default="javascript: gs.getUserID();" label="Author" max_length="32" name="u_author" read_only="true" reference="sys_user" type="reference"/>
         <element attributes="edge_encryption_enabled=true" label="Customers affected" max_length="100" name="u_customers_affected" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Customer's DL" max_length="40" name="u_customer_dl" type="string"/>

@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update>
     <sys_choice action="INSERT_OR_UPDATE" field="u_suspect_race" table="x_42999_store_inc_suspect" version="3">
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>u_suspect_race</element>
+            <name>x_42999_store_inc_suspect</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-10-05 17:31:57</sys_created_on>
+            <sys_id>949c32632f6310109e9157892799b645</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>u_suspect_race</sys_name>
+            <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+            <sys_update_name>sys_choice_x_42999_store_inc_suspect_u_suspect_race</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-10-05 17:31:57</sys_updated_on>
+        </sys_choice_set>
         <sys_choice action="INSERT_OR_UPDATE">
             <dependent_value/>
             <element>u_suspect_race</element>
@@ -152,21 +168,5 @@
             <sys_updated_on>2020-10-05 17:31:57</sys_updated_on>
             <value>UNKNOWN</value>
         </sys_choice>
-        <sys_choice_set action="INSERT_OR_UPDATE">
-            <element>u_suspect_race</element>
-            <name>x_42999_store_inc_suspect</name>
-            <sys_class_name>sys_choice_set</sys_class_name>
-            <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2020-10-05 17:31:57</sys_created_on>
-            <sys_id>949c32632f6310109e9157892799b645</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_name>u_suspect_race</sys_name>
-            <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
-            <sys_policy/>
-            <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
-            <sys_update_name>sys_choice_x_42999_store_inc_suspect_u_suspect_race</sys_update_name>
-            <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2020-10-05 17:31:57</sys_updated_on>
-        </sys_choice_set>
     </sys_choice>
 </record_update>

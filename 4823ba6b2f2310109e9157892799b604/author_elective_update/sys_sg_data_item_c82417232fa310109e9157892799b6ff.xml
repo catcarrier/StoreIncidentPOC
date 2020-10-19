@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_data_item">
+    <sys_sg_data_item action="DELETE">
+        <condition_type>script</condition_type>
+        <description/>
+        <group_by/>
+        <instance_relative_url_qc/>
+        <name>My Store's Incidents - scripted</name>
+        <query_condition/>
+        <query_condition_script><![CDATA[(function getQueryString(input){
+    // Return a query string limiting incidents to those where:
+    //
+    // -- incident location matches any eligible location* for this user, OR
+    // -- incident was created by this user within the last year)
+    //
+    // * the user's own location, or for store users, any location matching the digits in their name
+    //   Ex: for user store33, any location named "STR0033..." is eligible.
+    //   Ex: for user A123456 only their own location is eligible
+    var queryString = '';
+
+    var elig_locations = new IncidentUtils().getUserEligibleLocations(gs.getUserID());
+    
+    gs.info("Got " + elig_locations.length + " locations" );
+
+    // Add an OR condition selecting any incident created by this user.
+    var author_recent_incidents = new IncidentUtils().getUserAuthoredIncidentsOneYear(gs.getUserID());
+
+    if(elig_locations.length > 0) {
+        //locations = locations.map( function(e) { return "u_event_location=" + e  } );
+        queryString = "u_event_locationIN" + elig_locations.join(",");
+    }
+    
+    if(author_recent_incidents.length > 0) {
+        queryString += (queryString ? "^OR" : "") + "sys_idIN" + author_recent_incidents.join(",");
+    }
+
+    queryString += "^ORDERBYDESCsys_created_on";
+
+    gs.info(queryString);
+
+    return queryString;
+})(input);]]></query_condition_script>
+        <sys_class_name>sys_sg_data_item</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-05 19:14:54</sys_created_on>
+        <sys_id>c82417232fa310109e9157892799b6ff</sys_id>
+        <sys_mod_count>14</sys_mod_count>
+        <sys_name>My Store's Incidents - scripted</sys_name>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_update_name>sys_sg_data_item_c82417232fa310109e9157892799b6ff</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-16 21:41:01</sys_updated_on>
+        <table>x_42999_store_inc_incident</table>
+    </sys_sg_data_item>
+    <sys_translated_text action="DELETE" query="documentkey=c82417232fa310109e9157892799b6ff"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</application>
+        <file_path/>
+        <instance_id>fdda684cdbdc7f4052cec597059619c8</instance_id>
+        <instance_name>dev75036</instance_name>
+        <name>sys_sg_data_item_c82417232fa310109e9157892799b6ff</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_sg_data_item"&gt;&lt;sys_sg_data_item action="INSERT_OR_UPDATE"&gt;&lt;condition_type&gt;script&lt;/condition_type&gt;&lt;description/&gt;&lt;group_by/&gt;&lt;instance_relative_url_qc/&gt;&lt;name&gt;My Store's Incidents - scripted&lt;/name&gt;&lt;query_condition/&gt;&lt;query_condition_script&gt;&lt;![CDATA[(function getQueryString(input){
+    // Return a query string limiting incidents to those where:
+    //
+    // -- incident location matches any eligible location* for this user, OR
+    // -- incident was created by this user within the last year)
+    //
+    // * the user's own location, or for store users, any location matching the digits in their name
+    //   Ex: for user store33, any location named "STR0033..." is eligible.
+    //   Ex: for user A123456 only their own location is eligible
+    var queryString = '';
+
+    var elig_locations = new IncidentUtils().getUserEligibleLocations(gs.getUserID());
+    
+    gs.info("Got " + elig_locations.length + " locations" );
+
+    // Add an OR condition selecting any incident created by this user.
+    var author_recent_incidents = new IncidentUtils().getUserAuthoredIncidentsOneYear(gs.getUserID());
+
+    if(elig_locations.length &gt; 0) {
+        //locations = locations.map( function(e) { return "u_event_location=" + e  } );
+        queryString = "u_event_locationIN" + elig_locations.join(",");
+    }
+    
+    if(author_recent_incidents.length &gt; 0) {
+        queryString += (queryString ? "^OR" : "") + "sys_idIN" + author_recent_incidents.join(",");
+    }
+
+    queryString += "^ORDERBYDESCsys_created_on";
+
+    gs.info(queryString);
+
+    return queryString;
+})(input);]]&gt;&lt;/query_condition_script&gt;&lt;sys_class_name&gt;sys_sg_data_item&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2020-10-05 19:14:54&lt;/sys_created_on&gt;&lt;sys_id&gt;c82417232fa310109e9157892799b6ff&lt;/sys_id&gt;&lt;sys_mod_count&gt;14&lt;/sys_mod_count&gt;&lt;sys_name&gt;My Store's Incidents - scripted&lt;/sys_name&gt;&lt;sys_package display_value="Store Incidents POC" source="x_42999_store_inc"&gt;4823ba6b2f2310109e9157892799b604&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Store Incidents POC"&gt;4823ba6b2f2310109e9157892799b604&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_sg_data_item_c82417232fa310109e9157892799b6ff&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-10-16 21:41:01&lt;/sys_updated_on&gt;&lt;table&gt;x_42999_store_inc_incident&lt;/table&gt;&lt;/sys_sg_data_item&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=c82417232fa310109e9157892799b6ff"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1536166703</payload_hash>
+        <record_name>My Store's Incidents - scripted</record_name>
+        <reverted_from/>
+        <source>2b5d71aa2f3350109e9157892799b6bf</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-16 21:41:01</sys_created_on>
+        <sys_id>3b0f94972fbb10109e9157892799b663</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>175335be4840000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-16 21:41:01</sys_updated_on>
+        <type>Data Item</type>
+        <update_guid>730f9497f4bb1010f743fef8af03f363</update_guid>
+        <update_guid_history>730f9497f4bb1010f743fef8af03f363:-1536166703,f027881bda7b1010df53a1430ef0e05f:1859932711,b496c8d7c77b10102a5b61713ccc6200:-117655801,2c9584d7717b101097dee02f6d35945d:1859932711,574584d7d47b10109bb1b735265a6a11:-1268998319,2a040097427b1010c37cd5788c39b71e:-513709519,30634c57cd7b1010db37a177359c81e7:-1574542415,18a6574b1af710107ee6157a55a48916:-1903439539,ace4d30bc5f71010350066d82917dee1:-1197927260,7486341e85f31010e718ecc88808448f:-1813670387,5d834cb365271010018ff992a2921c71:-2062019361,74a52f6f6ea31010c70790facbdc6ef8:724949491,34e3a72fb1a310100febf5e6d0fe572c:-1345328013,4e355f6382a31010f3e820698c7baecc:1973948013,9c245723e0a310103bc069c1adbd8101:629406446</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-16 22:01:16</sys_created_on>
+        <sys_db_object display_value="" name="sys_sg_data_item">sys_sg_data_item</sys_db_object>
+        <sys_id>462c7467828c4b62ae70fd2d97e21f24</sys_id>
+        <sys_metadata>c82417232fa310109e9157892799b6ff</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>My Store's Incidents - scripted</sys_name>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_scope_delete display_value="">e917f26fd2df4032a7626372b05d5e64</sys_scope_delete>
+        <sys_update_name>sys_sg_data_item_c82417232fa310109e9157892799b6ff</sys_update_name>
+        <sys_update_version display_value="sys_sg_data_item_c82417232fa310109e9157892799b6ff">3b0f94972fbb10109e9157892799b663</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-16 22:01:16</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_item_stream">
     <sys_sg_item_stream action="INSERT_OR_UPDATE">
-        <data_item display_value="My Store's Incidents">c82417232fa310109e9157892799b6ff</data_item>
+        <data_item/>
         <interleaved_field/>
         <name>My Store's In-Progress Incidents Item Stream</name>
         <sys_class_name>sys_sg_item_stream</sys_class_name>
