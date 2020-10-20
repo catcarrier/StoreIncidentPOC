@@ -77,7 +77,7 @@ var incidents = [{
         'u_author': '',
         'u_state': '',
         'u_event_location': '',
-        'u_incident_datetime': '2020-07-02 16:31:00',
+        'u_incident_datetime': '',
         'u_employee_id_reporting': '111111',
         'u_description': 'Somebody robbed the Glendale train',
         'u_victim_name': 'Billy',
@@ -117,7 +117,7 @@ var incidents = [{
         'u_state': '',
         'u_event_location': '',
         'u_author': '',
-        'u_incident_datetime': '2020-08-20 11:34:00',
+        'u_incident_datetime': '',
         'u_employee_id_reporting': '111111',
         'u_description': 'Stole the ball and cleats',
         'u_le_was_notified': 'NO',
@@ -172,7 +172,7 @@ var incidents = [{
         'u_state': '',
         'u_event_location': '',
         'u_author': '',
-        'u_incident_datetime': '2019-11-02 10:30:00',
+        'u_incident_datetime': '',
         'u_employee_id_reporting': '111111',
         'u_description': 'one armed bandit',
         'u_weapon_involved': '',
@@ -208,7 +208,7 @@ var incidents = [{
         'u_state': '',
         'u_event_location': '',
         'u_author': '',
-        'u_incident_datetime': '2020-08-17 08:30:00',
+        'u_incident_datetime': '',
         'u_employee_id_reporting': '111111',
         'u_description': 'one armed banditti',
         'u_le_was_notified': 'YES, POLICE RESPONDED IN PERSON',
@@ -250,8 +250,6 @@ var insertIncident = function(incidentData, user_id, location, isPrimaryLocation
     gr_user.get('sys_id', user_id);
 	
 	var msg = gr_user.getValue('user_name') + "/" + location + "/" + isPrimaryLocation + "/" + state;
-	
-	gs.info(msg);
 	
     var gr = new GlideRecord("x_42999_store_inc_incident");
     gr.initialize();
@@ -354,6 +352,12 @@ for (var inc_index = 0; inc_index < incidents.length; inc_index++) {
 
             var user = users[user_index];
 
+			// The incident date is today's date minus random days (max -40)
+			var gdt = new GlideDateTime();
+			gdt.addDaysLocalTime(-1 * Math.floor(Math.random() * 40));
+			gdt.addSeconds(-1 * Math.floor(Math.random() * 86400));
+			incidentData['u_incident_datetime'] = gdt;
+			
             insertIncident(incidentData, user.sys_id, user.primary_location, true, state);
 
             insertIncident(incidentData, user.sys_id, user.secondary_location, false, state);
@@ -366,14 +370,14 @@ for (var inc_index = 0; inc_index < incidents.length; inc_index++) {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-10-15 21:58:13</sys_created_on>
         <sys_id>49c113362f3710109e9157892799b6fc</sys_id>
-        <sys_mod_count>22</sys_mod_count>
+        <sys_mod_count>24</sys_mod_count>
         <sys_name>Populate incidents - alt</sys_name>
         <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
         <sys_policy/>
         <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
         <sys_update_name>sys_script_fix_49c113362f3710109e9157892799b6fc</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-10-16 15:15:39</sys_updated_on>
+        <sys_updated_on>2020-10-19 18:33:38</sys_updated_on>
         <unloadable>false</unloadable>
     </sys_script_fix>
 </record_update>

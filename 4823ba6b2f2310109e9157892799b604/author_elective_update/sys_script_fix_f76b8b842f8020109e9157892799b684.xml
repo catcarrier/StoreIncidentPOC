@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_fix">
+    <sys_script_fix action="DELETE">
+        <active>true</active>
+        <before>false</before>
+        <description/>
+        <flush_cache>false</flush_cache>
+        <name>foo</name>
+        <record_for_rollback>false</record_for_rollback>
+        <run_once>false</run_once>
+        <script><![CDATA[var gdt = new GlideDateTime();
+gs.info(gdt.toString());]]></script>
+        <sys_class_name>sys_script_fix</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-19 18:10:09</sys_created_on>
+        <sys_id>f76b8b842f8020109e9157892799b684</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>foo</sys_name>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_update_name>sys_script_fix_f76b8b842f8020109e9157892799b684</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-19 18:14:36</sys_updated_on>
+        <unloadable>false</unloadable>
+    </sys_script_fix>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</application>
+        <file_path/>
+        <instance_id>fdda684cdbdc7f4052cec597059619c8</instance_id>
+        <instance_name>dev75036</instance_name>
+        <name>sys_script_fix_f76b8b842f8020109e9157892799b684</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_fix"&gt;&lt;sys_script_fix action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;before&gt;false&lt;/before&gt;&lt;description/&gt;&lt;flush_cache&gt;false&lt;/flush_cache&gt;&lt;name&gt;foo&lt;/name&gt;&lt;record_for_rollback&gt;false&lt;/record_for_rollback&gt;&lt;run_once&gt;false&lt;/run_once&gt;&lt;script&gt;&lt;![CDATA[var gdt = new GlideDateTime();
+gs.info(gdt.toString());]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_fix&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2020-10-19 18:10:09&lt;/sys_created_on&gt;&lt;sys_id&gt;f76b8b842f8020109e9157892799b684&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;foo&lt;/sys_name&gt;&lt;sys_package display_value="Store Incidents POC" source="x_42999_store_inc"&gt;4823ba6b2f2310109e9157892799b604&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Store Incidents POC"&gt;4823ba6b2f2310109e9157892799b604&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_fix_f76b8b842f8020109e9157892799b684&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-10-19 18:14:36&lt;/sys_updated_on&gt;&lt;unloadable&gt;false&lt;/unloadable&gt;&lt;/sys_script_fix&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-796543628</payload_hash>
+        <record_name>foo</record_name>
+        <reverted_from/>
+        <source>2b5d71aa2f3350109e9157892799b6bf</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-19 18:14:36</sys_created_on>
+        <sys_id>559c03c42f8020109e9157892799b621</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1754211fb830000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-19 18:14:36</sys_updated_on>
+        <type>Fix Script</type>
+        <update_guid>dd9c03c4b98020101f25b4e4c6fcaf20</update_guid>
+        <update_guid_history>dd9c03c4b98020101f25b4e4c6fcaf20:-796543628,109b830883802010268a05e051b346c5:-1590428197</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-19 21:32:14</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_fix">sys_script_fix</sys_db_object>
+        <sys_id>1341a30f8ab344888f934b1d26247139</sys_id>
+        <sys_metadata>f76b8b842f8020109e9157892799b684</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>foo</sys_name>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_scope_delete display_value="">e917f26fd2df4032a7626372b05d5e64</sys_scope_delete>
+        <sys_update_name>sys_script_fix_f76b8b842f8020109e9157892799b684</sys_update_name>
+        <sys_update_version display_value="sys_script_fix_f76b8b842f8020109e9157892799b684">559c03c42f8020109e9157892799b621</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-19 21:32:14</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

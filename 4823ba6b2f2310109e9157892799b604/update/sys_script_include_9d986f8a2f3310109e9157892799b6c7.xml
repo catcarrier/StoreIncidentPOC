@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
     <sys_script_include action="INSERT_OR_UPDATE">
-        <access>public</access>
+        <access>package_private</access>
         <active>true</active>
         <api_name>x_42999_store_inc.IncidentUtils</api_name>
         <caller_access/>
-        <client_callable>false</client_callable>
+        <client_callable>true</client_callable>
         <description/>
         <name>IncidentUtils</name>
         <script><![CDATA[var IncidentUtils = Class.create();
@@ -15,6 +15,35 @@ IncidentUtils.prototype = {
         this.INCIDENT_INCOMPLETE_STATES = ["DRAFT", "FAILED"];
     },
 
+    // Allow the user to read the incident if any is true:
+    //
+    //  -- user has incident_reader role
+    //  -- user created the incident (relies on default value of u_author)
+    //  -- user is a store user
+    allowIncidentRead: function(current, user /* user object, not sys_id */) {
+        if (user.hasRole('x_42999_store_inc.incident_reader')) return true;
+		
+		if(this.isAuthor(current, user.getID())) return true;
+		
+        var STORE_USER_PATTERN = /store[a-z]{0,}\d{1,4}/gi;
+        if (STORE_USER_PATTERN.test(user.getName())) return true; // test user_name
+
+		return false;
+    },
+
+	// Allow the user to create an incident if they have the role
+	// or they are a store user.
+	//
+	allowIncidentCreate: function(user /* user object, not sys_id */) {
+		if (user.hasRole('x_42999_store_inc.incident_author')) return true;
+        
+        var STORE_USER_PATTERN = /store[a-z]{0,}\d{1,4}/gi;
+        if (STORE_USER_PATTERN.test(user.getName())) return true;
+
+		return false;
+    },
+	
+	
     getUserLocation: function(user_id) {
         var gr = new GlideRecord("sys_user");
         gr.get('sys_id', user_id);
@@ -23,7 +52,7 @@ IncidentUtils.prototype = {
     },
 
     // Return a list of location sys_ids to be considered a match with the
-	// current user. The list is:
+    // current user. The list is:
     // -- The user's location, plus
     // -- Locations matching "STR" plus the digits in the user's user_name, *if* the
     //    name matches /store[a-z]{0,}\d{1,4}/gi
@@ -32,25 +61,22 @@ IncidentUtils.prototype = {
     // ---------             ------
     // "A123456"             [<user's location>]
     // "storedir179"         [<user's location>, <location(s) named STR0179>]
-	//
+    //
     getUserEligibleLocations: function(user_id) {
-		var locations = [];
-		
-		var msgs = [];
-		
-		// first get the user's location, add to locations
-		var gr = new GlideRecord("sys_user");
-		gr.get( user_id );
-		if(gr.location) {
-			locations.push(gr.getValue('location'));
-			msgs.push("added user location, locations.length is now " + locations.length);
-		}
-		
-		// Second, for store users only, get any location matching the
-		// digits in their username
+        var locations = [];
+
+        // first get the user's location, add to locations
+        var gr = new GlideRecord("sys_user");
+        gr.get(user_id);
+        if (gr.location) {
+            locations.push(gr.getValue('location'));
+        }
+
+        // Second, for store users only, get any location matching the
+        // digits in their username
         var STORE_USER_PATTERN = /store[a-z]{0,}\d{1,4}/gi;
         var user_name = gr.getValue("user_name");
-		
+
         if (STORE_USER_PATTERN.test(user_name)) {
             var storeNumber = user_name.split("")
                 .filter(function(e) {
@@ -61,80 +87,63 @@ IncidentUtils.prototype = {
             var gr_location = new GlideRecord('cmn_location');
             gr_location.addQuery('name', 'STARTSWITH', 'STR' + padding + storeNumber); // 'STR0033'
             gr_location.query();
-			while(gr_location.next()) {
-				
-				// Rhino is giving trouble about pushing additional elements into locations[]
-				// from here, so work around it by creating a single-element array for each
-				// new value, and merging into locations
-				var matching_locations = [];
-				matching_locations.push("" + gr_location.sys_id);
-				if(locations.indexOf(matching_locations[0]) == -1) {
-					// broken -- does not add
-					//locations.push("" + gr_location.getValue('sys_id'));
-					//msgs.push("added ' + gr_location.getValue('sys_id') + ", locations.length + " is now " + locations.length);
-					
-					// workaround
-					matching_locations.push("" + gr_location.sys_id);
-					Array.prototype.push.apply(locations, matching_locations);
-				}
-			}
+
+            while (gr_location.next()) {
+                if (locations.indexOf("" + gr_location.getValue('sys_id')) == -1) {
+                    locations.push("" + gr_location.getValue('sys_id'));
+                }
+            }
         }
-		
-		msgs.push("found " + locations.length + " total locations");
-		//msgs.info("locations: " + locations.join(","));
-		
-		gs.info(msgs.join("\n"));
-		
-		return locations;
+        return locations;
     },
 
-	// Return sys_ids of incidents authored by the given user in the last year
-	// Hard coded at one year.
-	getUserAuthoredIncidentsOneYear: function(user_id){
-		var sys_ids = [];
-		var gr = new GlideRecord("x_42999_store_inc_incident");
-		gr.addQuery('u_author', user_id);
-		var gdt = new GlideDateTime();
-		gdt.addYearsLocalTime(-1);
-		gr.addQuery('u_incident_datetime', '>', gdt.getDate());
-		gr.query();
-		while(gr.next()) sys_ids.push(gr.getValue('sys_id'));
-		return sys_ids;
-	},
-	
-	// return true if the current user is the author of this incident
-    isAuthor: function(gr, user_id ) {
+    // Return sys_ids of incidents authored by the given user in the last year
+    // Hard coded at one year.
+    getUserAuthoredIncidentsOneYear: function(user_id) {
+        var sys_ids = [];
+        var gr = new GlideRecord("x_42999_store_inc_incident");
+        gr.addQuery('u_author', user_id);
+        var gdt = new GlideDateTime();
+        gdt.addYearsLocalTime(-1);
+        gr.addQuery('u_incident_datetime', '>', gdt.getDate());
+        gr.query();
+        while (gr.next()) sys_ids.push(gr.getValue('sys_id'));
+        return sys_ids;
+    },
+
+    // return true if the current user is the author of this incident
+    isAuthor: function(gr, user_id) {
         if (!gr) return false;
         return user_id == gr.getValue('u_author');
     },
-	
-	// Return true if:
-	// -- incident state is Draft or Failed, and
-	// -- user is the incident author, or the location is one associated with this user
-	//
+
+    // Return true if:
+    // -- incident state is Draft or Failed, and
+    // -- user is the incident author, or the location is one associated with this user
+    //
     standardIncidentActionAllow: function(incident, user_id) {
-        if (this.INCIDENT_INCOMPLETE_STATES.indexOf(incident.getValue(this.INCIDENT_STATE)) == -1){
-			return false;
-		}
-		
-		if(this.isAuthor( incident, user_id )) {
-			return true;
-		}
-		
-		var location = this.getUserLocation(user_id);
-		if(location) {
-			// this user can take actions on any open incident for one of these locations
-			var locations = this.getUserEligibleLocations(user_id);
-			if(locations.indexOf(incident.getValue(this.INCIDENT_LOCATION)) > -1) {
-				return true;
-			}
-		}
-		
-		return false;
+        if (this.INCIDENT_INCOMPLETE_STATES.indexOf(incident.getValue(this.INCIDENT_STATE)) == -1) {
+            return false;
+        }
+
+        if (this.isAuthor(incident, user_id)) {
+            return true;
+        }
+
+        var location = this.getUserLocation(user_id);
+        if (location) {
+            // this user can take actions on any open incident for one of these locations
+            var locations = this.getUserEligibleLocations(user_id);
+            if (locations.indexOf(incident.getValue(this.INCIDENT_LOCATION)) > -1) {
+                return true;
+            }
+        }
+
+        return false;
     },
 
-	// The user can take any action on a child record they would be allowed
-	// to take on its parent record.
+    // The user can take any action on a child record they would be allowed
+    // to take on its parent record.
     standardChildActionAllow: function(child, user_id) {
         var sys_id = child.u_parent;
         var gr = new GlideRecord("x_42999_store_inc_incident");
@@ -148,17 +157,17 @@ IncidentUtils.prototype = {
     // -- the user created the incident OR its location is one associated with the user
     //
     allowEditIncident: function(incident, user_id) {
-		if (this.INCIDENT_INCOMPLETE_STATES.indexOf(incident.getValue(this.INCIDENT_STATE)) == -1) return false;
-		if( this.isAuthor(incident, user_id) ) return true;
-		var locations = this.getUserEligibleLocations(user_id);
-		if( locations.indexOf(incident.getValue(this.INCIDENT_LOCATION)) > -1 ) return true;
-		return false;
+        if (this.INCIDENT_INCOMPLETE_STATES.indexOf(incident.getValue(this.INCIDENT_STATE)) == -1) return false;
+        if (this.isAuthor(incident, user_id)) return true;
+        var locations = this.getUserEligibleLocations(user_id);
+        if (locations.indexOf(incident.getValue(this.INCIDENT_LOCATION)) > -1) return true;
+        return false;
     },
 
-	// Return true if the user is the author and the incident is not submitted
+    // Return true if the user is the author and the incident is not submitted
     allowDeleteIncident: function(incident, user_id) {
-        return this.isAuthor(incident, user_id) 
-			&& this.INCIDENT_INCOMPLETE_STATES.indexOf(incident.getValue(this.INCIDENT_STATE)) > -1;
+        return this.isAuthor(incident, user_id) &&
+            this.INCIDENT_INCOMPLETE_STATES.indexOf(incident.getValue(this.INCIDENT_STATE)) > -1;
     },
 
     allowAddSuspect: function(incident, user_id) {
@@ -186,7 +195,7 @@ IncidentUtils.prototype = {
     },
 
     allowAddPolice: function(incident, user_id) {
-		return this.standardIncidentActionAllow(incident, user_id);
+        return this.standardIncidentActionAllow(incident, user_id);
     },
 
     allowEditPolice: function(police, user_id) {
@@ -225,26 +234,26 @@ IncidentUtils.prototype = {
         return this.standardChildActionAllow(sku, user_id);
     },
 
-//     getMyLocationSysID: function() {
-//         var user_sys_id = gs.getUserID();
-//         var gr = new GlideRecord('sys_user');
-//         gr.get('sys_id', user_sys_id);
-//         return gr.getValue('location');
-//     },
- 
+    //     getMyLocationSysID: function() {
+    //         var user_sys_id = gs.getUserID();
+    //         var gr = new GlideRecord('sys_user');
+    //         gr.get('sys_id', user_sys_id);
+    //         return gr.getValue('location');
+    //     },
+
     type: 'IncidentUtils'
 };]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-10-13 15:10:02</sys_created_on>
         <sys_id>9d986f8a2f3310109e9157892799b6c7</sys_id>
-        <sys_mod_count>122</sys_mod_count>
+        <sys_mod_count>142</sys_mod_count>
         <sys_name>IncidentUtils</sys_name>
         <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
         <sys_update_name>sys_script_include_9d986f8a2f3310109e9157892799b6c7</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-10-19 15:18:38</sys_updated_on>
+        <sys_updated_on>2020-10-20 18:23:51</sys_updated_on>
     </sys_script_include>
 </record_update>

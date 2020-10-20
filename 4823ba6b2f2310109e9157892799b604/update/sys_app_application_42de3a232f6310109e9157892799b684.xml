@@ -7,14 +7,14 @@
         <hint>Store Incidents POC - classic UI interface</hint>
         <name/>
         <order/>
-        <roles>x_42999_store_inc.incident_reader,x_42999_store_inc.incident_author</roles>
+        <roles/>
         <sys_class_name>sys_app_application</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-10-05 17:41:54</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>42de3a232f6310109e9157892799b684</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>Store Incidents POC</sys_name>
         <sys_overrides/>
         <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
@@ -22,7 +22,7 @@
         <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
         <sys_update_name>sys_app_application_42de3a232f6310109e9157892799b684</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-10-05 17:41:54</sys_updated_on>
+        <sys_updated_on>2020-10-19 21:46:33</sys_updated_on>
         <title>Store Incidents POC</title>
         <view_name/>
     </sys_app_application>

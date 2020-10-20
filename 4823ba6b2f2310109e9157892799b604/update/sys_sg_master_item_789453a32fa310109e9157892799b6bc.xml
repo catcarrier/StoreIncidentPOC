@@ -2,11 +2,12 @@
     <sys_sg_master_item action="INSERT_OR_UPDATE">
         <condition_order/>
         <datasource_table>x_42999_store_inc_incident</datasource_table>
-        <datasource_table_condition table="x_42999_store_inc_incident">sys_created_onRELATIVEGT@dayofweek@ago@30^u_stateINDRAFT,FAILED^u_event_location.sys_idINjavascript: new IncidentUtils().getUserEligibleLocations(gs.getUserID())^NQsys_created_onRELATIVEGT@dayofweek@ago@30^u_author.sys_id=javascript: gs.getUserID()<item endquery="false" field="sys_created_on" goto="false" newquery="false" operator="RELATIVE" or="false" value="GT@dayofweek@ago@30"/>
-            <item display_value="DRAFT,FAILED" endquery="false" field="u_state" goto="false" newquery="false" operator="IN" or="false" value="DRAFT,FAILED"/>
+        <datasource_table_condition table="x_42999_store_inc_incident">u_stateINDRAFT,FAILED^u_event_location.sys_idINjavascript: new IncidentUtils().getUserEligibleLocations(gs.getUserID())^u_incident_datetimeRELATIVEGT@dayofweek@ago@30^NQu_author.sys_id=javascript: gs.getUserID()^u_incident_datetimeRELATIVEGT@dayofweek@ago@30^u_stateINDRAFT,FAILED<item display_value="DRAFT,FAILED" endquery="false" field="u_state" goto="false" newquery="false" operator="IN" or="false" value="DRAFT,FAILED"/>
             <item endquery="false" field="u_event_location.sys_id" goto="false" newquery="false" operator="IN" or="false" value="javascript: new IncidentUtils().getUserEligibleLocations(gs.getUserID())"/>
-            <item endquery="false" field="sys_created_on" goto="false" newquery="true" operator="RELATIVE" or="false" value="GT@dayofweek@ago@30"/>
-            <item endquery="false" field="u_author.sys_id" goto="false" newquery="false" operator="=" or="false" value="javascript: gs.getUserID()"/>
+            <item endquery="false" field="u_incident_datetime" goto="false" newquery="false" operator="RELATIVE" or="false" value="GT@dayofweek@ago@30"/>
+            <item endquery="false" field="u_author.sys_id" goto="false" newquery="true" operator="=" or="false" value="javascript: gs.getUserID()"/>
+            <item endquery="false" field="u_incident_datetime" goto="false" newquery="false" operator="RELATIVE" or="false" value="GT@dayofweek@ago@30"/>
+            <item display_value="DRAFT,FAILED" endquery="false" field="u_state" goto="false" newquery="false" operator="IN" or="false" value="DRAFT,FAILED"/>
         </datasource_table_condition>
         <embedded_screen/>
         <item_view display_value="My Store's In-Progress Incidents Item View">749453a32fa310109e9157892799b6b4</item_view>
@@ -15,13 +16,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-10-05 19:16:52</sys_created_on>
         <sys_id>789453a32fa310109e9157892799b6bc</sys_id>
-        <sys_mod_count>7</sys_mod_count>
+        <sys_mod_count>8</sys_mod_count>
         <sys_name>My Store's In-Progress Incidents Master Item</sys_name>
         <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
         <sys_policy/>
         <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
         <sys_update_name>sys_sg_master_item_789453a32fa310109e9157892799b6bc</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-10-19 15:02:41</sys_updated_on>
+        <sys_updated_on>2020-10-19 16:04:00</sys_updated_on>
     </sys_sg_master_item>
 </record_update>

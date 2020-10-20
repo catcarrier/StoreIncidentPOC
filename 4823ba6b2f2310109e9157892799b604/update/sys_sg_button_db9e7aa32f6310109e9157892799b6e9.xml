@@ -6,7 +6,7 @@
         <button_table_field_name/>
         <cancel_label/>
         <condition/>
-        <condition_script/>
+        <condition_script>javascript: new IncidentUtils().allowIncidentCreate(gs.getUser());</condition_script>
         <condition_type>script</condition_type>
         <confirm_label/>
         <confirmation_message/>
@@ -30,7 +30,7 @@
         <phone_type>cellular</phone_type>
         <preconditions>none</preconditions>
         <relative_url>true</relative_url>
-        <roles>x_42999_store_inc.incident_author</roles>
+        <roles/>
         <save_signature_before_action_execution>false</save_signature_before_action_execution>
         <select_current_record>false</select_current_record>
         <show_acknowledgement>false</show_acknowledgement>
@@ -43,14 +43,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-10-05 17:40:54</sys_created_on>
         <sys_id>db9e7aa32f6310109e9157892799b6e9</sys_id>
-        <sys_mod_count>9</sys_mod_count>
+        <sys_mod_count>12</sys_mod_count>
         <sys_name>New (Shoplifting)</sys_name>
         <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
         <sys_policy/>
         <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
         <sys_update_name>sys_sg_button_db9e7aa32f6310109e9157892799b6e9</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-10-07 16:54:18</sys_updated_on>
+        <sys_updated_on>2020-10-20 18:36:29</sys_updated_on>
         <table>x_42999_store_inc_incident</table>
         <take_value_from_field>false</take_value_from_field>
         <type>write_back</type>
