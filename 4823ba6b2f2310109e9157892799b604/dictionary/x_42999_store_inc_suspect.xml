@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element label="Suspect" max_length="40" name="x_42999_store_inc_suspect" sizeclass="144" type="collection">
+    <element label="Suspect" max_length="40" name="x_42999_store_inc_suspect" sizeclass="0" type="collection">
         <element attributes="encode_utf8=false" label="Parent" max_length="32" name="u_parent" reference="x_42999_store_inc_incident" type="reference"/>
         <element attributes="edge_encryption_enabled=true" label="Address" max_length="100" name="u_suspect_address" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Driver's License" max_length="40" name="u_suspect_dl" type="string"/>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_item_view">
+    <sys_sg_item_view action="INSERT_OR_UPDATE">
+        <data_item/>
+        <dependency_fields>u_user.name-22123,u_user.email-22124,u_user.avatar-13144</dependency_fields>
+        <item_view_json>{"Type":"ViewGroup","Margin":{"Bottom":15,"Top":17},"Orientation":"Vertical","Alignment":"Left","Distribution":"Auto","Children":[{"Type":"Text","Margin":{},"studio_template_field_id":"E1","TextColor":"#7d8a8c","TextAlignment":"Left","MaxLines":1,"Font":{"Weight":"regular","Size":13},"CellId":"u_user.name","Id":22123},{"Type":"Text","Margin":{"Top":10},"studio_template_field_id":"E2","TextColor":"#293E40","TextAlignment":"Left","MaxLines":1,"Font":{"Size":18,"Weight":"medium"},"CellId":"u_user.email","Id":22124},{"Type":"ViewGroup","Margin":{"Top":11},"Orientation":"Horizontal","Alignment":"Center","Distribution":"Auto","Children":[{"Type":"Image","CornerRadius":11,"Height":22,"Width":22,"Margin":{"Right":8},"studio_template_field_id":"E3","Scaling":"Fill","CellId":"u_user.avatar","Id":13144},{"Type":"Text","Margin":{},"studio_template_field_id":"E4","TextColor":"#293e40","TextAlignment":"Center","MaxLines":1,"Font":{"Weight":"regular","Size":15},"Id":32753}],"Id":12261}],"studio_card_id":"d2f9a01173c12300d396c8168bf6a74e","Id":28090}</item_view_json>
+        <name>Preferences Header Item View</name>
+        <short_description/>
+        <sys_class_name>sys_sg_item_view</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-27 18:41:48</sys_created_on>
+        <sys_id>718fdcba2f8020109e9157892799b663</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Preferences Header Item View</sys_name>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_update_name>sys_sg_item_view_718fdcba2f8020109e9157892799b663</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-27 21:07:23</sys_updated_on>
+        <table>x_42999_store_inc_user_preferences</table>
+        <ui_styles/>
+    </sys_sg_item_view>
+    <sys_translated_text action="delete_multiple" query="documentkey=718fdcba2f8020109e9157892799b663"/>
+</record_update>

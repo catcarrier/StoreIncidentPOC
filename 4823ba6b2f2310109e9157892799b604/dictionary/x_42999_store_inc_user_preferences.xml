@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="User Preferences" max_length="40" name="x_42999_store_inc_user_preferences" sizeclass="1" type="collection">
+        <element choice="3" label="Use a location I specify" max_length="32" name="u_specified_location" reference="cmn_location" reference_qual="nameSTARTSWITHSTR^cityISNOTEMPTY^EQ" reference_qual_condition="nameSTARTSWITHSTR^cityISNOTEMPTY^EQ" type="reference">
+            <choice/>
+        </element>
+        <element display="true" label="User" mandatory="true" max_length="32" name="u_user" read_only="true" reference="sys_user" type="reference"/>
+        <element default="true" label="Use my own location" max_length="40" name="u_use_implicit_location" type="boolean"/>
+        <index name="index">
+            <element name="u_specified_location"/>
+        </index>
+        <index name="index2">
+            <element name="u_user"/>
+        </index>
+    </element>
+</database>

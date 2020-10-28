@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_button">
+    <sys_sg_button action="DELETE">
+        <acknowledgement_confirm_label>I Agree</acknowledgement_confirm_label>
+        <allow_images_upload>false</allow_images_upload>
+        <auto_redirection>true</auto_redirection>
+        <button_table_field_name/>
+        <cancel_label/>
+        <condition/>
+        <condition_script/>
+        <condition_type>declarative</condition_type>
+        <confirm_label/>
+        <confirmation_message/>
+        <context>global</context>
+        <description/>
+        <destination_alp/>
+        <destination_screen display_value="Preferences">358fdcba2f8020109e9157892799b666</destination_screen>
+        <destination_type>screen</destination_type>
+        <external_browser>false</external_browser>
+        <failure_message/>
+        <field_name/>
+        <jump_to_previous>false</jump_to_previous>
+        <jump_to_screen>false</jump_to_screen>
+        <link_label/>
+        <link_url/>
+        <mail_address/>
+        <mail_content/>
+        <mail_subject/>
+        <name>User Preferences</name>
+        <phone_number/>
+        <phone_type>cellular</phone_type>
+        <preconditions>none</preconditions>
+        <relative_url>false</relative_url>
+        <roles/>
+        <save_signature_before_action_execution>false</save_signature_before_action_execution>
+        <select_current_record>false</select_current_record>
+        <show_acknowledgement>false</show_acknowledgement>
+        <show_confirmation>false</show_confirmation>
+        <show_refresh_on_previous>false</show_refresh_on_previous>
+        <show_signature>false</show_signature>
+        <sms/>
+        <success_message/>
+        <sys_class_name>sys_sg_button</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-27 18:54:29</sys_created_on>
+        <sys_id>ab62a83e2f8020109e9157892799b66a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>User Preferences</sys_name>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_update_name>sys_sg_button_ab62a83e2f8020109e9157892799b66a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-27 18:54:29</sys_updated_on>
+        <table/>
+        <take_value_from_field>true</take_value_from_field>
+        <type>redirection</type>
+        <use_overlay>false</use_overlay>
+        <write_back_action_item/>
+    </sys_sg_button>
+    <sys_translated_text action="DELETE" query="documentkey=ab62a83e2f8020109e9157892799b66a"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</application>
+        <file_path/>
+        <instance_id>fdda684cdbdc7f4052cec597059619c8</instance_id>
+        <instance_name>dev75036</instance_name>
+        <name>sys_sg_button_ab62a83e2f8020109e9157892799b66a</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_button"><sys_sg_button action="INSERT_OR_UPDATE"><acknowledgement_confirm_label>I Agree</acknowledgement_confirm_label><allow_images_upload>false</allow_images_upload><auto_redirection>true</auto_redirection><button_table_field_name/><cancel_label/><condition/><condition_script/><condition_type>declarative</condition_type><confirm_label/><confirmation_message/><context>global</context><description/><destination_alp/><destination_screen display_value="Preferences">358fdcba2f8020109e9157892799b666</destination_screen><destination_type>screen</destination_type><external_browser>false</external_browser><failure_message/><field_name/><jump_to_previous>false</jump_to_previous><jump_to_screen>false</jump_to_screen><link_label/><link_url/><mail_address/><mail_content/><mail_subject/><name>User Preferences</name><phone_number/><phone_type>cellular</phone_type><preconditions>none</preconditions><relative_url>false</relative_url><roles/><save_signature_before_action_execution>false</save_signature_before_action_execution><select_current_record>false</select_current_record><show_acknowledgement>false</show_acknowledgement><show_confirmation>false</show_confirmation><show_refresh_on_previous>false</show_refresh_on_previous><show_signature>false</show_signature><sms/><success_message/><sys_class_name>sys_sg_button</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-10-27 18:54:29</sys_created_on><sys_id>ab62a83e2f8020109e9157892799b66a</sys_id><sys_mod_count>0</sys_mod_count><sys_name>User Preferences</sys_name><sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package><sys_policy/><sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope><sys_update_name>sys_sg_button_ab62a83e2f8020109e9157892799b66a</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-10-27 18:54:29</sys_updated_on><table/><take_value_from_field>true</take_value_from_field><type>redirection</type><use_overlay>false</use_overlay><write_back_action_item/></sys_sg_button><sys_translated_text action="delete_multiple" query="documentkey=ab62a83e2f8020109e9157892799b66a"/></record_update>]]></payload>
+        <payload_hash>-614254672</payload_hash>
+        <record_name>User Preferences</record_name>
+        <reverted_from/>
+        <source>2b5d71aa2f3350109e9157892799b6bf</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-27 18:54:29</sys_created_on>
+        <sys_id>6762a83e2f8020109e9157892799b66d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1756b6960cd0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-27 18:54:29</sys_updated_on>
+        <type>Function</type>
+        <update_guid>af62a83e908020105a415d9734d3e86c</update_guid>
+        <update_guid_history>af62a83e908020105a415d9734d3e86c:-614254672</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-27 18:56:22</sys_created_on>
+        <sys_db_object display_value="" name="sys_sg_button">sys_sg_button</sys_db_object>
+        <sys_id>13a8080b24864b6995ddc218b0051c69</sys_id>
+        <sys_metadata>ab62a83e2f8020109e9157892799b66a</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>User Preferences</sys_name>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_scope_delete display_value="">e917f26fd2df4032a7626372b05d5e64</sys_scope_delete>
+        <sys_update_name>sys_sg_button_ab62a83e2f8020109e9157892799b66a</sys_update_name>
+        <sys_update_version display_value="sys_sg_button_ab62a83e2f8020109e9157892799b66a">6762a83e2f8020109e9157892799b66d</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-27 18:56:22</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

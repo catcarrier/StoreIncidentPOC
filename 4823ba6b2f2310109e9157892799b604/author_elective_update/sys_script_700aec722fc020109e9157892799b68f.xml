@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="DELETE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>false</action_insert>
+        <action_query>true</action_query>
+        <action_update>false</action_update>
+        <active>false</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_42999_store_inc_user_preferences</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>onUserPreferenceQuery</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+	// If there is no User Preferences doc for the specified user, create one now
+	// with default values
+	var msgs = [];
+	
+	var ecq = current.getEncodedQuery();
+	
+	msgs.push(ecq);
+	
+	// Get the param carrying the sysid of the user whose preference doc we want to
+	// return. If there is no matching preferences doc, create one now.
+	// 
+	// Note the assumption that the calling Data Item has its filter set to "User = xxx".
+	// If it were set up as "User.SysID = xxx" the encoded query syntax would be different
+	// than what we are sniffing for here.
+	var index = ecq.indexOf('u_user='); 
+	
+	msgs.push("index of 'u_user=' is " + index);
+	
+	if(index > -1) {
+		var start_index = index + 'u_user='.length;
+		var end_index = index + 'u_user='.length + 32;
+		
+		msgs.push(start_index);
+		msgs.push(end_index);
+		
+		var user_sysid = ecq.substring(start_index, end_index);
+		
+		msgs.push("user sysid is " + user_sysid);
+		
+		// If no match, create one now.
+		var gr = new GlideRecord("x_42999_store_inc_user_preferences");
+		gr.addQuery('u_user', user_sysid);
+		gr.query();
+		if( !(gr.next()) ) {
+			msgs.push("no record");
+			msgs.push("inserting new record");
+			
+			gr.initialize();
+			gr.setValue('u_user', user_sysid);
+			var new_sysid = gr.insert();
+			
+			if(new_sysid) {
+				msgs.push("new user pref record "+ new_sysid);
+			} else {
+				msgs.push("Could not insert new user pref record!");
+			}
+		} else {
+			msgs.push("Found user preference doc " + gr.getValue('sys_id'));
+		}
+	}
+	
+	gs.info( msgs.join('\n') );
+	
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-27 20:05:30</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>700aec722fc020109e9157892799b68f</sys_id>
+        <sys_mod_count>28</sys_mod_count>
+        <sys_name>onUserPreferenceQuery</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_update_name>sys_script_700aec722fc020109e9157892799b68f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-28 14:35:05</sys_updated_on>
+        <template/>
+        <when>before</when>
+    </sys_script>
+    <sys_translated_text action="DELETE" query="documentkey=700aec722fc020109e9157892799b68f"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</application>
+        <file_path/>
+        <instance_id>fdda684cdbdc7f4052cec597059619c8</instance_id>
+        <instance_name>dev75036</instance_name>
+        <name>sys_script_700aec722fc020109e9157892799b68f</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script"&gt;&lt;sys_script action="INSERT_OR_UPDATE"&gt;&lt;abort_action&gt;false&lt;/abort_action&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;action_delete&gt;false&lt;/action_delete&gt;&lt;action_insert&gt;false&lt;/action_insert&gt;&lt;action_query&gt;true&lt;/action_query&gt;&lt;action_update&gt;false&lt;/action_update&gt;&lt;active&gt;false&lt;/active&gt;&lt;add_message&gt;false&lt;/add_message&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;change_fields&gt;false&lt;/change_fields&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;collection&gt;x_42999_store_inc_user_preferences&lt;/collection&gt;&lt;condition/&gt;&lt;description/&gt;&lt;execute_function&gt;false&lt;/execute_function&gt;&lt;filter_condition/&gt;&lt;is_rest&gt;false&lt;/is_rest&gt;&lt;message/&gt;&lt;name&gt;onUserPreferenceQuery&lt;/name&gt;&lt;order&gt;100&lt;/order&gt;&lt;priority&gt;100&lt;/priority&gt;&lt;rest_method/&gt;&lt;rest_method_text/&gt;&lt;rest_service/&gt;&lt;rest_service_text/&gt;&lt;rest_variables/&gt;&lt;role_conditions/&gt;&lt;script&gt;&lt;![CDATA[(function executeRule(current, previous /*null when async*/) {
+	// If there is no User Preferences doc for the specified user, create one now
+	// with default values
+	var msgs = [];
+	
+	var ecq = current.getEncodedQuery();
+	
+	msgs.push(ecq);
+	
+	// Get the param carrying the sysid of the user whose preference doc we want to
+	// return. If there is no matching preferences doc, create one now.
+	// 
+	// Note the assumption that the calling Data Item has its filter set to "User = xxx".
+	// If it were set up as "User.SysID = xxx" the encoded query syntax would be different
+	// than what we are sniffing for here.
+	var index = ecq.indexOf('u_user='); 
+	
+	msgs.push("index of 'u_user=' is " + index);
+	
+	if(index &gt; -1) {
+		var start_index = index + 'u_user='.length;
+		var end_index = index + 'u_user='.length + 32;
+		
+		msgs.push(start_index);
+		msgs.push(end_index);
+		
+		var user_sysid = ecq.substring(start_index, end_index);
+		
+		msgs.push("user sysid is " + user_sysid);
+		
+		// If no match, create one now.
+		var gr = new GlideRecord("x_42999_store_inc_user_preferences");
+		gr.addQuery('u_user', user_sysid);
+		gr.query();
+		if( !(gr.next()) ) {
+			msgs.push("no record");
+			msgs.push("inserting new record");
+			
+			gr.initialize();
+			gr.setValue('u_user', user_sysid);
+			var new_sysid = gr.insert();
+			
+			if(new_sysid) {
+				msgs.push("new user pref record "+ new_sysid);
+			} else {
+				msgs.push("Could not insert new user pref record!");
+			}
+		} else {
+			msgs.push("Found user preference doc " + gr.getValue('sys_id'));
+		}
+	}
+	
+	gs.info( msgs.join('\n') );
+	
+})(current, previous);]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2020-10-27 20:05:30&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;700aec722fc020109e9157892799b68f&lt;/sys_id&gt;&lt;sys_mod_count&gt;28&lt;/sys_mod_count&gt;&lt;sys_name&gt;onUserPreferenceQuery&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Store Incidents POC" source="x_42999_store_inc"&gt;4823ba6b2f2310109e9157892799b604&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Store Incidents POC"&gt;4823ba6b2f2310109e9157892799b604&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_700aec722fc020109e9157892799b68f&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-10-28 14:35:05&lt;/sys_updated_on&gt;&lt;template/&gt;&lt;when&gt;before&lt;/when&gt;&lt;/sys_script&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=700aec722fc020109e9157892799b68f"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>504310316</payload_hash>
+        <record_name>onUserPreferenceQuery</record_name>
+        <reverted_from/>
+        <source>2b5d71aa2f3350109e9157892799b6bf</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-28 14:35:06</sys_created_on>
+        <sys_id>b5a07c832f0020109e9157892799b622</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1756fa242100000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-28 14:35:06</sys_updated_on>
+        <type>Business Rule</type>
+        <update_guid>7da07c83c5002010d4b0f5df31f1a621</update_guid>
+        <update_guid_history>7da07c83c5002010d4b0f5df31f1a621:504310316,8155d9fef504201028ce51aef821f499:683758555,1a7411be2f042010b5132e36fa16a32a:504310316,7f6945f6e40420103f3e179413e3764a:2013781389,3e070d766f0420101ba8e995d3a98521:1520977534,c5b305f2e0042010f83502058d2891e0:411623946,2da1c172a3042010f105be1dec4f0cdd:1904566058,0781c9324b042010defd49811be0dffe:411623946,a351c1729d04201042a4034a45b4ff6b:1904566058,72a0c1722204201062b7e01d66059010:262492239,98a08172ca042010b949f8776a7ca847:928430585,badf3432340420103a9551b1aecc2afe:1653532054,c2beb8feb7c020100a07477890686880:1529961090,c86eb4fef4c02010362b279729bcaecb:1498442039,e5fdf0fe9fc02010056d6114b7b06e55:-1289796820,e3ecf0bebac02010133fb050bd3af7c2:-1226062199,f64cbc7edec020104201fa15812efb46:1422890281,a16b747ef8c02010eafae8bdf87fbfcc:59068357,360a303ea4c02010f2e752da48db4e63:917519017,24a9bcfa24c02010eedd641f39362144:-2039262702,eb59f0fa65c0201097cbddb5316f5748:829771148,22a874fa1cc0201007590ed5bd2e4040:25145321,a568b0facfc02010c7429c32da8d2239:271663629,10f77cbae4c020102becc08739430721:2104771653,7747707a3dc02010929318c706d7fd5e:-391569266,5546b47adac02010f45ccbaf4319fa67:1553121341,5cb5747a58c02010ac2a8a0599a5ff46:-19249566,eee4bcf62fc02010ecaa73dd71927cf4:1362907033,f3a27876f8c020101455fa177d69280c:1361400358</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-28 16:35:52</sys_created_on>
+        <sys_db_object display_value="" name="sys_script">sys_script</sys_db_object>
+        <sys_id>19806e6b49094f2691b06eef93d16cf1</sys_id>
+        <sys_metadata>700aec722fc020109e9157892799b68f</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>onUserPreferenceQuery</sys_name>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_parent display_value="User Preferences">bbfa1cf62f8020109e9157892799b684</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_scope_delete display_value="">e917f26fd2df4032a7626372b05d5e64</sys_scope_delete>
+        <sys_update_name>sys_script_700aec722fc020109e9157892799b68f</sys_update_name>
+        <sys_update_version display_value="sys_script_700aec722fc020109e9157892799b68f">b5a07c832f0020109e9157892799b622</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-28 16:35:52</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

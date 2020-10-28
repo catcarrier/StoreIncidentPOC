@@ -13,6 +13,7 @@ IncidentUtils.prototype = {
         this.INCIDENT_LOCATION = "u_event_location";
         this.INCIDENT_STATE = "u_state";
         this.INCIDENT_INCOMPLETE_STATES = ["DRAFT", "FAILED"];
+		this.USER_PREFERENCES = "x_42999_store_inc_user_preferences";
     },
 
     // Allow the user to read the incident if any is true:
@@ -234,12 +235,24 @@ IncidentUtils.prototype = {
         return this.standardChildActionAllow(sku, user_id);
     },
 
-    //     getMyLocationSysID: function() {
-    //         var user_sys_id = gs.getUserID();
-    //         var gr = new GlideRecord('sys_user');
-    //         gr.get('sys_id', user_sys_id);
-    //         return gr.getValue('location');
-    //     },
+	// Return the sys_id of the User Preferences record whose User field
+	// matches the given user sys_id. If no matching record exists, create
+	// one with default values and return the sys_id of the new record.
+	getOrCreateUserPreferencesSysID: function(user_id) {
+		if(!user_id) throw new Error('User sysid required');
+		
+		var gr = new GlideRecord(this.USER_PREFERENCES);
+		gr.addQuery('u_user', user_id);
+		gr.query();
+		if(gr.next()) {
+			return gr.sys_id;
+		}
+		
+		gr.initialize();
+		gr.setValue('u_user', user_id);
+
+		return gr.insert();
+	},
 
     type: 'IncidentUtils'
 };]]></script>
@@ -247,13 +260,13 @@ IncidentUtils.prototype = {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-10-13 15:10:02</sys_created_on>
         <sys_id>9d986f8a2f3310109e9157892799b6c7</sys_id>
-        <sys_mod_count>142</sys_mod_count>
+        <sys_mod_count>146</sys_mod_count>
         <sys_name>IncidentUtils</sys_name>
         <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
         <sys_update_name>sys_script_include_9d986f8a2f3310109e9157892799b6c7</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-10-20 18:23:51</sys_updated_on>
+        <sys_updated_on>2020-10-28 16:35:28</sys_updated_on>
     </sys_script_include>
 </record_update>

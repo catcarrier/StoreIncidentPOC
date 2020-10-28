@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_redirect_dest_field">
+    <sys_sg_redirect_dest_field action="DELETE">
+        <button display_value="User Preferences">ab62a83e2f8020109e9157892799b66a</button>
+        <button_table/>
+        <constant_value/>
+        <destination_ui_parameter display_value="user_sys_id">5f9fd4ba2f8020109e9157892799b6ed</destination_ui_parameter>
+        <source_field/>
+        <source_ui_parameter/>
+        <sys_class_name>sys_sg_redirect_dest_field</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-27 18:54:29</sys_created_on>
+        <sys_id>ab62207e2f8020109e9157892799b6a5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>5f9fd4ba2f8020109e9157892799b6ed</sys_name>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_update_name>sys_sg_redirect_dest_field_ab62207e2f8020109e9157892799b6a5</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-27 18:54:29</sys_updated_on>
+        <type>field</type>
+    </sys_sg_redirect_dest_field>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</application>
+        <file_path/>
+        <instance_id>fdda684cdbdc7f4052cec597059619c8</instance_id>
+        <instance_name>dev75036</instance_name>
+        <name>sys_sg_redirect_dest_field_ab62207e2f8020109e9157892799b6a5</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_redirect_dest_field"><sys_sg_redirect_dest_field action="INSERT_OR_UPDATE"><button display_value="User Preferences">ab62a83e2f8020109e9157892799b66a</button><button_table/><constant_value/><destination_ui_parameter display_value="user_sys_id">5f9fd4ba2f8020109e9157892799b6ed</destination_ui_parameter><source_field/><source_ui_parameter/><sys_class_name>sys_sg_redirect_dest_field</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-10-27 18:54:29</sys_created_on><sys_id>ab62207e2f8020109e9157892799b6a5</sys_id><sys_mod_count>0</sys_mod_count><sys_name>5f9fd4ba2f8020109e9157892799b6ed</sys_name><sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package><sys_policy/><sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope><sys_update_name>sys_sg_redirect_dest_field_ab62207e2f8020109e9157892799b6a5</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-10-27 18:54:29</sys_updated_on><type>field</type></sys_sg_redirect_dest_field></record_update>]]></payload>
+        <payload_hash>193400514</payload_hash>
+        <record_name>5f9fd4ba2f8020109e9157892799b6ed</record_name>
+        <reverted_from/>
+        <source>2b5d71aa2f3350109e9157892799b6bf</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-27 18:54:29</sys_created_on>
+        <sys_id>6b62207e2f8020109e9157892799b6a8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1756b6961180000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-27 18:54:29</sys_updated_on>
+        <type>Redirection destination fields</type>
+        <update_guid>a362207ee38020101d2c253cb9db0ca8</update_guid>
+        <update_guid_history>a362207ee38020101d2c253cb9db0ca8:193400514</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-27 18:56:22</sys_created_on>
+        <sys_db_object display_value="" name="sys_sg_redirect_dest_field">sys_sg_redirect_dest_field</sys_db_object>
+        <sys_id>0bbd0d7c5fb348c08721871d20d24090</sys_id>
+        <sys_metadata>ab62207e2f8020109e9157892799b6a5</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>5f9fd4ba2f8020109e9157892799b6ed</sys_name>
+        <sys_package display_value="Store Incidents POC" source="x_42999_store_inc">4823ba6b2f2310109e9157892799b604</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Store Incidents POC">4823ba6b2f2310109e9157892799b604</sys_scope>
+        <sys_scope_delete display_value="">e917f26fd2df4032a7626372b05d5e64</sys_scope_delete>
+        <sys_update_name>sys_sg_redirect_dest_field_ab62207e2f8020109e9157892799b6a5</sys_update_name>
+        <sys_update_version display_value="sys_sg_redirect_dest_field_ab62207e2f8020109e9157892799b6a5">6b62207e2f8020109e9157892799b6a8</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-27 18:56:22</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
